@@ -330,7 +330,7 @@
         <div class="nav-container">
             <!-- Left Side - Logo -->
             <div class="nav-left">
-                <a href="admin-dashboard.php" class="brand-logo">
+                <a href="admindashboard.php" class="brand-logo">
                     <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos" class="logo-icon">
                     <span class="brand-text">Horos</span>
                     <span class="admin-badge">Admin</span>
@@ -349,7 +349,7 @@
                     <span>Manage Products</span>
                 </a>
 
-                <a href="manage-users.php" class="nav-link" onclick="setActiveNav(this)">
+                <a href="manageUsers.php" class="nav-link" onclick="setActiveNav(this)">
                     <i class="fas fa-users users-icon"></i>
                     <span>Manage Users</span>
                 </a>

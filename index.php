@@ -693,9 +693,49 @@
         }
 
         .category-image {
+            background-image: url('resource/audemars-piguet-royal-oak-offsho.png');
             width: 100%;
             height: 100%;
-            background: var(--gray-600);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-image5 {
+            background-image: url('resource/carred1-scaled-e1659541845383.png');
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-image2 {
+            background-image: url('resource/IW344001_cover.png');
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-image3 {
+            background-image: url('resource/watch-club-rolex-gmt-master-gold-and-steel-box-and-warranty-card-ref-116713ln-year-2015-13305-1.png');
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-image4 {
+            background-image: url('resource/OS-WC-Patek-Philippe-5811-52.jpg');
+            width: 100%;
+            height: 100%;
             position: relative;
             display: flex;
             align-items: center;
@@ -1033,101 +1073,101 @@
 
     <!-- Advanced Search Modal -->
     <div class="search-modal d-none" id="filterId" ">
-        <div class="search-backdrop" onclick="viewFilter()"></div>
-        <div class="search-container">
-            <div class="search-header">
-                <h3>Find Your Perfect Style</h3>
-                <button class="search-close" onclick="viewFilter()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+        <div class=" search-backdrop" onclick="viewFilter()"></div>
+    <div class="search-container">
+        <div class="search-header">
+            <h3>Find Your Perfect Style</h3>
+            <button class="search-close" onclick="viewFilter()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
 
-            <div class="search-content">
-                <div class="search-filters">
-                    <div class="filter-group">
-                        <label>Color</label>
-                        <select id="color" class="filter-select">
-                            <option value="0">Any Color</option>
-                            <?php
-                            $rs1 = Database::search("SELECT * FROM `color`");
-                            $num1 = $rs1->num_rows;
-                            for ($i = 0; $i < $num1; $i++) {
-                                $d1 = $rs1->fetch_assoc();
-                            ?>
-                                <option value="<?php echo $d1["color_id"] ?>">
-                                    <?php echo $d1["color_name"] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Category</label>
-                        <select id="cat" class="filter-select">
-                            <option value="0">All Categories</option>
-                            <?php
-                            $rs2 = Database::search("SELECT * FROM `category`");
-                            $num2 = $rs2->num_rows;
-                            for ($i = 0; $i < $num2; $i++) {
-                                $d2 = $rs2->fetch_assoc();
-                            ?>
-                                <option value="<?php echo $d2["cat_id"] ?>">
-                                    <?php echo $d2["cat_name"] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Brand</label>
-                        <select id="brand" class="filter-select">
-                            <option value="0">All Brands</option>
-                            <?php
-                            $rs3 = Database::search("SELECT * FROM `brand`");
-                            $num3 = $rs3->num_rows;
-                            for ($i = 0; $i < $num3; $i++) {
-                                $d3 = $rs3->fetch_assoc();
-                            ?>
-                                <option value="<?php echo $d3["brand_id"] ?>">
-                                    <?php echo $d3["brand_name"] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Size</label>
-                        <select id="size" class="filter-select">
-                            <option value="0">All Sizes</option>
-                            <?php
-                            $rs4 = Database::search("SELECT * FROM `size`");
-                            $num4 = $rs4->num_rows;
-                            for ($i = 0; $i < $num4; $i++) {
-                                $d4 = $rs4->fetch_assoc();
-                            ?>
-                                <option value="<?php echo $d4["size_id"] ?>">
-                                    <?php echo $d4["size_name"] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label>Price Range</label>
-                        <div class="price-inputs">
-                            <input type="text" id="min" placeholder="Min" class="price-input">
-                            <span class="price-separator">-</span>
-                            <input type="text" id="max" placeholder="Max" class="price-input">
-                        </div>
-                    </div>
+        <div class="search-content">
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label>Color</label>
+                    <select id="color" class="filter-select">
+                        <option value="0">Any Color</option>
+                        <?php
+                        $rs1 = Database::search("SELECT * FROM `color`");
+                        $num1 = $rs1->num_rows;
+                        for ($i = 0; $i < $num1; $i++) {
+                            $d1 = $rs1->fetch_assoc();
+                        ?>
+                            <option value="<?php echo $d1["color_id"] ?>">
+                                <?php echo $d1["color_name"] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
                 </div>
 
-                <button class="search-btn" onclick="advSearchProduct(0);">
-                    <i class="fas fa-search"></i>
-                    Search Products
-                </button>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="cat" class="filter-select">
+                        <option value="0">All Categories</option>
+                        <?php
+                        $rs2 = Database::search("SELECT * FROM `category`");
+                        $num2 = $rs2->num_rows;
+                        for ($i = 0; $i < $num2; $i++) {
+                            $d2 = $rs2->fetch_assoc();
+                        ?>
+                            <option value="<?php echo $d2["cat_id"] ?>">
+                                <?php echo $d2["cat_name"] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Brand</label>
+                    <select id="brand" class="filter-select">
+                        <option value="0">All Brands</option>
+                        <?php
+                        $rs3 = Database::search("SELECT * FROM `brand`");
+                        $num3 = $rs3->num_rows;
+                        for ($i = 0; $i < $num3; $i++) {
+                            $d3 = $rs3->fetch_assoc();
+                        ?>
+                            <option value="<?php echo $d3["brand_id"] ?>">
+                                <?php echo $d3["brand_name"] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Size</label>
+                    <select id="size" class="filter-select">
+                        <option value="0">All Sizes</option>
+                        <?php
+                        $rs4 = Database::search("SELECT * FROM `size`");
+                        $num4 = $rs4->num_rows;
+                        for ($i = 0; $i < $num4; $i++) {
+                            $d4 = $rs4->fetch_assoc();
+                        ?>
+                            <option value="<?php echo $d4["size_id"] ?>">
+                                <?php echo $d4["size_name"] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <div class="price-inputs">
+                        <input type="text" id="min" placeholder="Min" class="price-input">
+                        <span class="price-separator">-</span>
+                        <input type="text" id="max" placeholder="Max" class="price-input">
+                    </div>
+                </div>
             </div>
+
+            <button class="search-btn" onclick="advSearchProduct(0);">
+                <i class="fas fa-search"></i>
+                Search Products
+            </button>
         </div>
+    </div>
     </div>
 
     <!-- Hero Section -->
@@ -1213,8 +1253,7 @@
                     <div class="section-badge secondary">New Arrivals</div>
                     <h2 class="section-title">Fresh Drops</h2>
                     <p class="section-text">
-                        Stay ahead of the curve with our latest arrivals. Each piece is carefully selected
-                        to bring you the freshest trends and most innovative designs from top brands.
+                        Discover our latest arrivals — curated timepieces that blend innovation with timeless style. Stay ahead with cutting-edge designs from the world’s leading watchmakers.
                     </p>
 
                     <div class="features-list">
@@ -1232,7 +1271,7 @@
                         </div>
                     </div>
 
-                    <button class="btn-outline">
+                    <button class="btn-outline" onclick="location.href='shop.php'">
                         Explore New Arrivals
                         <i class="fas fa-external-link-alt"></i>
                     </button>
@@ -1291,7 +1330,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">Categories</div>
-                <h2 class="section-title">Shop by Style</h2>
+                <h2 class="section-title">Pick Your Style</h2>
             </div>
 
             <div class="categories-grid">
@@ -1299,53 +1338,53 @@
                     <div class="category-image">
                         <div class="category-overlay"></div>
                         <div class="category-content">
-                            <h3 class="category-title">Streetwear</h3>
-                            <p class="category-subtitle">Urban essentials</p>
-                            <button class="category-btn">Shop Now</button>
+                            <h3 class="category-title">Luxury</h3>
+                            <p class="category-subtitle">Audemars Piguet</p>
+                            <button class="category-btn" onclick="location.href='shop.php'">Shop Now</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <div class="category-image">
+                    <div class="category-image2" >
                         <div class="category-overlay"></div>
                         <div class="category-content">
-                            <h3 class="category-title">Formal</h3>
-                            <p class="category-subtitle">Professional style</p>
-                            <button class="category-btn">Shop Now</button>
+                            <h3 class="category-title">Pilot</h3>
+                            <p class="category-subtitle">IWC Schaffhausen</p>
+                            <button class="category-btn" onclick="location.href='shop.php'">Shop Now</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <div class="category-image">
+                    <div class="category-image3">
                         <div class="category-overlay"></div>
                         <div class="category-content">
-                            <h3 class="category-title">Casual</h3>
-                            <p class="category-subtitle">Everyday comfort</p>
-                            <button class="category-btn">Shop Now</button>
+                            <h3 class="category-title">Dive</h3>
+                            <p class="category-subtitle">Rolex</p>
+                            <button class="category-btn" onclick="location.href='shop.php'">Shop Now</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <div class="category-image">
+                    <div class="category-image4">
                         <div class="category-overlay"></div>
                         <div class="category-content">
-                            <h3 class="category-title">Accessories</h3>
-                            <p class="category-subtitle">Perfect additions</p>
-                            <button class="category-btn">Shop Now</button>
+                            <h3 class="category-title">Sport</h3>
+                            <p class="category-subtitle">Patek Philippe</p>
+                            <button class="category-btn" onclick="location.href='shop.php'">Shop Now</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="category-card">
-                    <div class="category-image">
+                    <div class="category-image5">
                         <div class="category-overlay"></div>
                         <div class="category-content">
-                            <h3 class="category-title">Premium</h3>
-                            <p class="category-subtitle">Luxury pieces</p>
-                            <button class="category-btn">Shop Now</button>
+                            <h3 class="category-title">Chronograph</h3>
+                            <p class="category-subtitle">TAG Heuer</p>
+                            <button class="category-btn" onclick="location.href='shop.php'">Shop Now</button>
                         </div>
                     </div>
                 </div>

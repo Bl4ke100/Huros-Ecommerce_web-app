@@ -842,9 +842,9 @@
                     <i class="fas fa-plus"></i>
                     Add New Product
                 </button>
-                <button class="btn btn-secondary" onclick="openAddBrandModal()">
+                <button class="btn btn-secondary" onclick="window.location.href='manageCats.php';">
                     <i class="fas fa-tags"></i>
-                    Add New Color/ Category
+                    Add New Color/ Category/
                 </button>
                 <button class="btn btn-secondary" onclick="window.location.href='manageStock.php';">
                     <i class="fas fa-tags"></i>
@@ -1025,7 +1025,7 @@
                                     <td><?php echo $product['cat_name']; ?></td>
                                     <td><?php echo $product['color_name']; ?></td>
                                     <td><?php echo $product['size_name']; ?></td>
-                                    <td>$<?php echo number_format($product['price'], 2); ?></td>
+                                    <td>Rs.<?php echo number_format($product['price'], 2); ?></td>
                                     <td><?php echo $product['qty']; ?></td>
                                     <td><span class="status-badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span></td>
                                     <td>
@@ -1139,31 +1139,7 @@
         </div>
     </div>
 
-    <!-- Add Brand Modal -->
-    <div class="modal" id="addBrandModal">
-        <div class="modal-backdrop" onclick="closeAddBrandModal()"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3 class="modal-title">Add New Brand</h3>
-                <button class="modal-close" onclick="closeAddBrandModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-content">
-                <form id="addBrandForm">
-                    <div class="form-group">
-                        <label class="form-label">Brand Name</label>
-                        <input type="text" class="form-control" id="brandName" placeholder="Enter brand name" required>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-cancel" onclick="closeAddBrandModal()">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Brand</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>

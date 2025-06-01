@@ -35,8 +35,10 @@ function signUp() {
                 Swal.fire({
                     title: "Successfully Registered!",
                     text: response,
-                    icon: "success"
-                  });
+                    icon: "success",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
 
                 fname.value = "";
                 lname.value = "";
@@ -53,10 +55,12 @@ function signUp() {
                 // document.getElementById("msgDiv1").className = "d-block";
 
                 Swal.fire({
-                    title:"" ,
-                    text:response,
-                    icon: "error"
-                  });
+                    title: "",
+                    text: response,
+                    icon: "error",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
             }
         }
     };
@@ -90,10 +94,12 @@ function signIn() {
                 // document.getElementById("msgDiv2").className = "d-block";
 
                 Swal.fire({
-                    title:"" ,
-                    text:response,
-                    icon: "error"
-                  });
+                    title: "",
+                    text: response,
+                    icon: "error",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
             }
 
         }
@@ -173,7 +179,9 @@ function updateUserStatus() {
                 Swal.fire({
                     title: "Success",
                     text: "User Deactivated Successfully",
-                    icon: "success"
+                    icon: "success",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
                 });
 
                 userId.value = "";
@@ -188,7 +196,9 @@ function updateUserStatus() {
                 Swal.fire({
                     title: "Success",
                     text: "User Activated Successfully",
-                    icon: "success"
+                    icon: "success",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
                 });
 
                 userId.value = "";
@@ -199,7 +209,13 @@ function updateUserStatus() {
                 // document.getElementById("msg4").innerHTML = response;
                 // document.getElementById("msgDiv4").className = "d-block";
 
-                Swal.fire(response);
+                Swal.fire({
+                    title: "Error",
+                    text: response,
+                    icon: "error",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
             }
         }
     }
@@ -400,7 +416,9 @@ function regProduct() {
                 Swal.fire({
                     title: "Success",
                     text: "Product Registration Success!",
-                    icon: "success"
+                    icon: "success",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
                 });
                 //   location.reload();
                 setTimeout(function () {
@@ -409,7 +427,13 @@ function regProduct() {
 
             } else {
                 // alert(response);
-                Swal.fire(response);
+                Swal.fire({
+                    title: "Error",
+                    text: response,
+                    icon: "error",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
             }
 
         }
@@ -569,7 +593,13 @@ function uploadImg() {
             var response = request.responseText;
             if (response == "empty") {
                 // alert("please select your Profile image")
-                Swal.fire("Please Select Your Profile Image");
+                Swal.fire({
+                    title: "Error",
+                    text: "Please Select Your Profile Image",
+                    icon: "error",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
+                });
 
             } else if (response !== "success") {
                 reload();
