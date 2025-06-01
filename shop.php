@@ -85,7 +85,6 @@ if (isset($_SESSION["u"])) {
 				background: var(--gradient-primary);
 				position: relative;
 				overflow: hidden;
-				padding-top: 90px; /* Account for fixed header */
 			}
 
 			.shop-container::before {
@@ -111,7 +110,7 @@ if (isset($_SESSION["u"])) {
 			/* Page Header */
 			.page-header {
 				text-align: center;
-				padding: 2rem 0;
+				padding: 4rem 0 2rem 0;
 				animation: fadeInDown 0.8s ease-out;
 			}
 
@@ -230,20 +229,77 @@ if (isset($_SESSION["u"])) {
 				font-size: 1.1rem;
 			}
 
-			/* Quick Actions */
-			.quick-actions {
-				display: flex;
-				justify-content: center;
-				gap: 1rem;
-				margin: 1.5rem 0;
-				flex-wrap: wrap;
+			/* Filters Grid */
+			.filters-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1.5rem;
+				margin-bottom: 2rem;
 			}
 
-			.quick-action-btn {
-				background: transparent;
+			.filter-group {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.filter-label {
+				font-weight: 600;
+				color: rgba(255, 255, 255, 0.9);
+				margin-bottom: 0.5rem;
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.filter-select,
+			.filter-input {
+				padding: 0.75rem 1rem;
+				background: rgba(255, 255, 255, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: var(--border-radius-md);
 				color: var(--pure-white);
-				border: 2px solid rgba(255, 255, 255, 0.3);
-				padding: 0.75rem 1.5rem;
+				font-size: 0.95rem;
+				transition: var(--transition-normal);
+			}
+
+			.filter-select:focus,
+			.filter-input:focus {
+				outline: none;
+				border-color: var(--pure-white);
+				background: rgba(255, 255, 255, 0.15);
+			}
+
+			.filter-select option {
+				background: var(--secondary-black);
+				color: var(--pure-white);
+			}
+
+			.filter-input::placeholder {
+				color: rgba(255, 255, 255, 0.5);
+			}
+
+			.price-range {
+				display: grid;
+				grid-template-columns: 1fr auto 1fr;
+				gap: 0.75rem;
+				align-items: center;
+			}
+
+			.price-separator {
+				color: rgba(255, 255, 255, 0.6);
+				font-weight: 600;
+			}
+
+			/* Filter Actions */
+			.filter-actions {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+			}
+
+			.filter-btn {
+				padding: 0.875rem 2rem;
+				border: none;
 				border-radius: var(--border-radius-md);
 				font-weight: 600;
 				cursor: pointer;
@@ -251,27 +307,31 @@ if (isset($_SESSION["u"])) {
 				display: flex;
 				align-items: center;
 				gap: 0.5rem;
-				text-decoration: none;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
 				font-size: 0.9rem;
 			}
 
-			.quick-action-btn:hover {
-				background: rgba(255, 255, 255, 0.1);
-				border-color: rgba(255, 255, 255, 0.5);
+			.btn-search {
+				background: var(--pure-white);
+				color: var(--primary-black);
+			}
+
+			.btn-search:hover {
+				background: var(--gray-100);
 				transform: translateY(-2px);
-				text-decoration: none;
-				color: var(--pure-white);
+				box-shadow: var(--shadow-md);
 			}
 
-			.quick-action-btn.primary {
-				background: var(--accent-blue);
-				border-color: var(--accent-blue);
+			.btn-clear {
+				background: transparent;
 				color: var(--pure-white);
+				border: 2px solid var(--pure-white);
 			}
 
-			.quick-action-btn.primary:hover {
-				background: rgba(59, 130, 246, 0.8);
-				color: var(--pure-white);
+			.btn-clear:hover {
+				background: rgba(255, 255, 255, 0.1);
+				transform: translateY(-2px);
 			}
 
 			/* Results Header */
@@ -290,18 +350,11 @@ if (isset($_SESSION["u"])) {
 			.results-info {
 				color: rgba(255, 255, 255, 0.8);
 				font-size: 0.95rem;
-				display: flex;
-				align-items: center;
-				gap: 1rem;
 			}
 
 			.results-count {
-				background: rgba(16, 185, 129, 0.2);
-				color: var(--accent-green);
-				padding: 0.25rem 0.75rem;
-				border-radius: var(--border-radius-sm);
-				font-weight: 600;
-				font-size: 0.85rem;
+				font-weight: 700;
+				color: var(--pure-white);
 			}
 
 			.sort-section {
@@ -324,191 +377,39 @@ if (isset($_SESSION["u"])) {
 				color: var(--pure-white);
 				font-size: 0.9rem;
 				min-width: 200px;
-				cursor: pointer;
 			}
 
-			.sort-select:focus {
-				outline: none;
-				border-color: var(--pure-white);
-			}
-
-			.sort-select option {
-				background: var(--secondary-black);
-				color: var(--pure-white);
-			}
-
-			/* Advanced Search Modal */
-			.search-modal {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100vw;
-				height: 100vh;
-				z-index: 9999;
+			/* Active Filters */
+			.active-filters {
 				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.search-backdrop {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.8);
-				backdrop-filter: blur(10px);
-			}
-
-			.search-container {
-				position: relative;
-				background: var(--primary-black);
-				border: 2px solid var(--pure-white);
-				border-radius: var(--border-radius-xl);
-				width: 90%;
-				max-width: 900px;
-				max-height: 90vh;
-				overflow-y: auto;
-				z-index: 10000;
-				animation: slideInUp 0.4s ease;
-			}
-
-			.search-modal-header {
-				padding: 2rem;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			.search-modal-header h3 {
-				font-size: 1.75rem;
-				font-weight: 700;
-			}
-
-			.search-close {
-				background: transparent;
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				color: var(--pure-white);
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				cursor: pointer;
-				transition: var(--transition-normal);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.search-close:hover {
-				background: var(--pure-white);
-				color: var(--primary-black);
-			}
-
-			.search-content {
-				padding: 2rem;
-			}
-
-			.search-filters {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-				gap: 1.5rem;
-				margin-bottom: 2rem;
-			}
-
-			.filter-group label {
-				display: block;
-				font-weight: 600;
-				margin-bottom: 0.5rem;
-				font-size: 0.9rem;
-				color: rgba(255, 255, 255, 0.9);
-			}
-
-			.filter-select,
-			.price-input {
-				width: 100%;
-				padding: 0.875rem 1rem;
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: var(--border-radius-md);
-				color: var(--pure-white);
-				font-size: 0.95rem;
-				transition: var(--transition-normal);
-			}
-
-			.filter-select:focus,
-			.price-input:focus {
-				outline: none;
-				border-color: var(--pure-white);
-				background: rgba(255, 255, 255, 0.1);
-			}
-
-			.filter-select option {
-				background: var(--secondary-black);
-				color: var(--pure-white);
-			}
-
-			.price-inputs {
-				display: flex;
-				align-items: center;
+				flex-wrap: wrap;
 				gap: 0.75rem;
+				margin: 1rem 0;
 			}
 
-			.price-separator {
-				font-weight: 600;
-				color: rgba(255, 255, 255, 0.6);
-			}
-
-			.search-btn {
-				width: 100%;
-				background: var(--pure-white);
-				color: var(--primary-black);
-				border: none;
-				padding: 1rem 2rem;
+			.filter-tag {
+				background: rgba(255, 255, 255, 0.1);
+				color: var(--pure-white);
+				padding: 0.5rem 1rem;
 				border-radius: var(--border-radius-md);
-				font-size: 1.1rem;
-				font-weight: 600;
-				cursor: pointer;
-				transition: var(--transition-normal);
+				font-size: 0.85rem;
 				display: flex;
 				align-items: center;
-				justify-content: center;
 				gap: 0.5rem;
+				border: 1px solid rgba(255, 255, 255, 0.2);
 			}
 
-			.search-btn:hover {
-				background: var(--gray-100);
-				transform: translateY(-2px);
-			}
-
-			/* Loading State */
-			.loading-state {
-				text-align: center;
-				padding: 4rem 2rem;
+			.filter-tag .remove-filter {
 				color: rgba(255, 255, 255, 0.7);
+				cursor: pointer;
+				transition: var(--transition-fast);
 			}
 
-			.loading-spinner {
-				width: 60px;
-				height: 60px;
-				border: 3px solid rgba(255, 255, 255, 0.1);
-				border-top: 3px solid var(--pure-white);
-				border-radius: 50%;
-				animation: spin 1s linear infinite;
-				margin: 0 auto 1.5rem;
+			.filter-tag .remove-filter:hover {
+				color: var(--pure-white);
 			}
 
-			@keyframes spin {
-				0% { transform: rotate(0deg); }
-				100% { transform: rotate(360deg); }
-			}
-
-			.loading-text {
-				font-size: 1.1rem;
-				font-weight: 500;
-			}
-
-			/* Product Grid (using existing styles but adding ID for AJAX) */
+			/* Product Grid */
 			.products-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -516,7 +417,6 @@ if (isset($_SESSION["u"])) {
 				margin: 2rem 0;
 			}
 
-			/* Product Card Styles (keeping existing) */
 			.product-card {
 				background: rgba(255, 255, 255, 0.05);
 				border: 1px solid rgba(255, 255, 255, 0.1);
@@ -683,7 +583,7 @@ if (isset($_SESSION["u"])) {
 				margin-bottom: 2rem;
 			}
 
-			/* Modern Pagination (keeping existing) */
+			/* Modern Pagination */
 			.pagination-container {
 				display: flex;
 				justify-content: center;
@@ -772,19 +672,46 @@ if (isset($_SESSION["u"])) {
 			}
 
 			/* Stagger animation for product cards */
-			.product-card:nth-child(1) { animation-delay: 0.1s; }
-			.product-card:nth-child(2) { animation-delay: 0.2s; }
-			.product-card:nth-child(3) { animation-delay: 0.3s; }
-			.product-card:nth-child(4) { animation-delay: 0.4s; }
-			.product-card:nth-child(5) { animation-delay: 0.5s; }
-			.product-card:nth-child(6) { animation-delay: 0.6s; }
-			.product-card:nth-child(7) { animation-delay: 0.7s; }
-			.product-card:nth-child(8) { animation-delay: 0.8s; }
+			.product-card:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+
+			.product-card:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+
+			.product-card:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+
+			.product-card:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+
+			.product-card:nth-child(5) {
+				animation-delay: 0.5s;
+			}
+
+			.product-card:nth-child(6) {
+				animation-delay: 0.6s;
+			}
+
+			.product-card:nth-child(7) {
+				animation-delay: 0.7s;
+			}
+
+			.product-card:nth-child(8) {
+				animation-delay: 0.8s;
+			}
 
 			/* Responsive Design */
 			@media (max-width: 1024px) {
 				.container {
 					padding: 0 1.5rem;
+				}
+
+				.filters-grid {
+					grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 				}
 
 				.results-header {
@@ -809,15 +736,13 @@ if (isset($_SESSION["u"])) {
 					text-align: center;
 				}
 
-				.quick-actions {
-					flex-direction: column;
-					align-items: center;
+				.filters-grid {
+					grid-template-columns: 1fr;
+					gap: 1rem;
 				}
 
-				.quick-action-btn {
-					width: 100%;
-					max-width: 300px;
-					justify-content: center;
+				.filter-actions {
+					flex-direction: column;
 				}
 
 				.products-grid {
@@ -825,21 +750,17 @@ if (isset($_SESSION["u"])) {
 					gap: 1.5rem;
 				}
 
-				.search-filters {
+				.price-range {
 					grid-template-columns: 1fr;
+					gap: 0.5rem;
 				}
 
-				.price-inputs {
-					flex-direction: column;
-					gap: 0.5rem;
+				.price-separator {
+					text-align: center;
 				}
 			}
 
 			@media (max-width: 480px) {
-				.shop-container {
-					padding-top: 80px;
-				}
-
 				.page-title {
 					font-size: 2.5rem;
 				}
@@ -855,15 +776,10 @@ if (isset($_SESSION["u"])) {
 				}
 			}
 
-			/* Search input animation when active */
-			.search-active .search-icon {
-				animation: pulse 1.5s infinite;
-			}
-
-			@keyframes pulse {
-				0% { opacity: 1; }
-				50% { opacity: 0.6; }
-				100% { opacity: 1; }
+			/* Hidden by default - toggle with JavaScript */
+			.filters-collapsed .filters-grid,
+			.filters-collapsed .filter-actions {
+				display: none;
 			}
 		</style>
 	</head>
@@ -871,105 +787,6 @@ if (isset($_SESSION["u"])) {
 	<body>
 		<!-- Include Navigation -->
 		<?php include "homeNav.php"; ?>
-
-		<!-- Advanced Search Modal -->
-		<div class="search-modal d-none" id="filterId">
-			<div class="search-backdrop" onclick="viewFilter()"></div>
-			<div class="search-container">
-				<div class="search-modal-header">
-					<h3>Advanced Search Filters</h3>
-					<button class="search-close" onclick="viewFilter()">
-						<i class="fas fa-times"></i>
-					</button>
-				</div>
-
-				<div class="search-content">
-					<div class="search-filters">
-						<div class="filter-group">
-							<label>Color</label>
-							<select id="color" class="filter-select">
-								<option value="0">Any Color</option>
-								<?php
-								$rs1 = Database::search("SELECT * FROM `color`");
-								$num1 = $rs1->num_rows;
-								for ($i = 0; $i < $num1; $i++) {
-									$d1 = $rs1->fetch_assoc();
-								?>
-									<option value="<?php echo $d1["color_id"] ?>">
-										<?php echo $d1["color_name"] ?>
-									</option>
-								<?php } ?>
-							</select>
-						</div>
-
-						<div class="filter-group">
-							<label>Category</label>
-							<select id="cat" class="filter-select">
-								<option value="0">All Categories</option>
-								<?php
-								$rs2 = Database::search("SELECT * FROM `category`");
-								$num2 = $rs2->num_rows;
-								for ($i = 0; $i < $num2; $i++) {
-									$d2 = $rs2->fetch_assoc();
-								?>
-									<option value="<?php echo $d2["cat_id"] ?>">
-										<?php echo $d2["cat_name"] ?>
-									</option>
-								<?php } ?>
-							</select>
-						</div>
-
-						<div class="filter-group">
-							<label>Brand</label>
-							<select id="brand" class="filter-select">
-								<option value="0">All Brands</option>
-								<?php
-								$rs3 = Database::search("SELECT * FROM `brand`");
-								$num3 = $rs3->num_rows;
-								for ($i = 0; $i < $num3; $i++) {
-									$d3 = $rs3->fetch_assoc();
-								?>
-									<option value="<?php echo $d3["brand_id"] ?>">
-										<?php echo $d3["brand_name"] ?>
-									</option>
-								<?php } ?>
-							</select>
-						</div>
-
-						<div class="filter-group">
-							<label>Size</label>
-							<select id="size" class="filter-select">
-								<option value="0">All Sizes</option>
-								<?php
-								$rs4 = Database::search("SELECT * FROM `size`");
-								$num4 = $rs4->num_rows;
-								for ($i = 0; $i < $num4; $i++) {
-									$d4 = $rs4->fetch_assoc();
-								?>
-									<option value="<?php echo $d4["size_id"] ?>">
-										<?php echo $d4["size_name"] ?>
-									</option>
-								<?php } ?>
-							</select>
-						</div>
-
-						<div class="filter-group">
-							<label>Price Range</label>
-							<div class="price-inputs">
-								<input type="text" id="min" placeholder="Min" class="price-input">
-								<span class="price-separator">-</span>
-								<input type="text" id="max" placeholder="Max" class="price-input">
-							</div>
-						</div>
-					</div>
-
-					<button class="search-btn" onclick="advSearchProduct(0);">
-						<i class="fas fa-search"></i>
-						Search Products
-					</button>
-				</div>
-			</div>
-		</div>
 
 		<div class="shop-container">
 			<div class="container">
@@ -981,145 +798,158 @@ if (isset($_SESSION["u"])) {
 					<p class="page-subtitle">Discover our curated selection of premium fashion pieces</p>
 				</div>
 
-				<!-- Search and Filter Section -->
-				<div class="search-filter-section">
-					<div class="search-header">
-						<h3 class="search-title">
-							<i class="fas fa-search"></i>
-							Find Your Perfect Style
-						</h3>
-					</div>
 
-					<!-- Search Bar -->
-					<div class="search-bar">
-						<div class="search-input-group">
-							<i class="fas fa-search search-icon"></i>
-							<input 
-								type="search" 
-								class="search-input" 
-								id="product" 
-								placeholder="Search for products, brands, categories..." 
-								onkeyup="handleSearch()"
-								autocomplete="off"
-							>
-						</div>
-					</div>
 
-					<!-- Quick Actions -->
-					<div class="quick-actions">
-						<button class="quick-action-btn primary" onclick="viewFilter()">
-							<i class="fas fa-sliders-h"></i>
-							Advanced Filters
-						</button>
-						<button class="quick-action-btn" onclick="loadProduct(0)">
-							<i class="fas fa-grid-3x3"></i>
-							Browse All
-						</button>
-						<button class="quick-action-btn" onclick="clearSearch()">
-							<i class="fas fa-refresh"></i>
-							Clear Search
-						</button>
-					</div>
-				</div>
+				<?php
+				// Build the main query with all joins
+				$query = "SELECT s.*, p.*, b.brand_name, c.cat_name, col.color_name, sz.size_name 
+                         FROM `stock` s 
+                         INNER JOIN `product` p ON s.product_id = p.id 
+                         INNER JOIN `brand` b ON p.brand_brand_id = b.brand_id 
+                         INNER JOIN `category` c ON p.category_cat_id = c.cat_id 
+                         INNER JOIN `color` col ON p.color_color_id = col.color_id 
+                         INNER JOIN `size` sz ON p.size_size_id = sz.size_id 
+                         WHERE s.status = 1";
 
-				<!-- Results Header -->
-				<div class="results-header" id="resultsHeader" style="display: none;">
-					<div class="results-info">
-						<i class="fas fa-box-open"></i>
-						<span id="resultsText">Showing all products</span>
-						<span class="results-count" id="resultsCount">0 items</span>
-					</div>
-					<div class="sort-section">
-						<label class="sort-label">Sort by:</label>
-						<select class="sort-select" id="sortSelect" onchange="applySorting()">
-							<option value="name_asc">Name: A-Z</option>
-							<option value="name_desc">Name: Z-A</option>
-							<option value="price_asc">Price: Low to High</option>
-							<option value="price_desc">Price: High to Low</option>
-							<option value="brand_asc">Brand: A-Z</option>
-							<option value="newest">Newest First</option>
-						</select>
-					</div>
-				</div>
 
-				<!-- Loading State -->
-				<div class="loading-state" id="loadingState" style="display: none;">
-					<div class="loading-spinner"></div>
-					<div class="loading-text">Searching products...</div>
-				</div>
 
-				<!-- Products Grid Container -->
-				<div class="row" id="pid">
-					<!-- This is where your AJAX results will load -->
-					<!-- Initial load of all products -->
-					<?php
-					// Build the main query with all joins
-					$query = "SELECT s.*, p.*, b.brand_name, c.cat_name, col.color_name, sz.size_name 
-							 FROM `stock` s 
-							 INNER JOIN `product` p ON s.product_id = p.id 
-							 INNER JOIN `brand` b ON p.brand_brand_id = b.brand_id 
-							 INNER JOIN `category` c ON p.category_cat_id = c.cat_id 
-							 INNER JOIN `color` col ON p.color_color_id = col.color_id 
-							 INNER JOIN `size` sz ON p.size_size_id = sz.size_id 
-							 WHERE s.status = 1";
+				// Get total count for pagination
+				$count_query = str_replace("SELECT s.*, p.*, b.brand_name, c.cat_name, col.color_name, sz.size_name", "SELECT COUNT(*)", $query);
+				$count_query = preg_replace('/ORDER BY.*/', '', $count_query);
+				$count_rs = Database::search($count_query);
+				$total_products = $count_rs->fetch_assoc()['COUNT(*)'];
 
-					// Get total count for pagination
-					$count_query = str_replace("SELECT s.*, p.*, b.brand_name, c.cat_name, col.color_name, sz.size_name", "SELECT COUNT(*)", $query);
-					$count_rs = Database::search($count_query);
-					$total_products = $count_rs->fetch_assoc()['COUNT(*)'];
+				// Pagination setup
+				$results_per_page = 12;
+				$total_pages = ceil($total_products / $results_per_page);
+				$offset = ($page - 1) * $results_per_page;
 
-					// Pagination setup
-					$results_per_page = 12;
-					$total_pages = ceil($total_products / $results_per_page);
-					$offset = ($page - 1) * $results_per_page;
+				// Add pagination to query
+				$final_query = $query . " LIMIT $results_per_page OFFSET $offset";
 
-					// Add pagination to query
-					$final_query = $query . " LIMIT $results_per_page OFFSET $offset";
+				// Execute final query
+				$products_rs = Database::search($final_query);
+				$products_count = $products_rs->num_rows;
+				?>
 
-					// Execute final query
-					$products_rs = Database::search($final_query);
-					$products_count = $products_rs->num_rows;
 
-					if ($products_count > 0):
-						while ($product = $products_rs->fetch_assoc()):
-					?>
-							<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-								<div class="card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; backdrop-filter: blur(20px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
-									<a href="singleProductView.php?s=<?php echo $product["stock_id"] ?>">
-										<img src="<?php echo $product["path"] ?>" class="card-img-top" style="height: 250px; object-fit: cover; filter: grayscale(30%); transition: all 0.3s ease;">
-									</a>
-									<div class="card-body" style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; color: white;">
-										<h5 class="card-title" style="color: white; font-weight: 600; margin-bottom: 0.75rem;"><?php echo $product["name"] ?></h5>
-										<p class="card-text" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-bottom: 1rem;"><?php echo $product["description"] ?></p>
-										<p class="card-text" style="color: #ffd700; font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">Rs. <?php echo number_format($product["price"], 2) ?></p>
-										<div class="d-flex justify-content-center">
-											<a href="singleProductView.php?s=<?php echo $product["stock_id"] ?>">
-												<button class="btn btn-dark col-12 ms-2 text-white" style="background: transparent; color: white; border: 2px solid white; border-radius: 12px; font-weight: 600; padding: 0.875rem; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.9rem;">
-													<i class="fas fa-eye me-2"></i>
-													View Details
-												</button>
-											</a>
+
+
+				<!-- Products Grid -->
+				<?php if ($products_count > 0): ?>
+					<div class="products-grid">
+						<?php while ($product = $products_rs->fetch_assoc()): ?>
+							<div class="product-card">
+								<img src="<?php echo $product['path']; ?>" alt="<?php echo $product['name']; ?>" class="product-image">
+
+								<div class="product-info">
+									<h3 class="product-name"><?php echo $product['name']; ?></h3>
+									<p class="product-description"><?php echo $product['description']; ?></p>
+
+									<div class="product-details">
+										<div class="product-detail">
+											<i class="fas fa-tag detail-icon"></i>
+											<span><?php echo $product['brand_name']; ?></span>
+										</div>
+										<div class="product-detail">
+											<i class="fas fa-th-large detail-icon"></i>
+											<span><?php echo $product['cat_name']; ?></span>
+										</div>
+										<div class="product-detail">
+											<i class="fas fa-palette detail-icon"></i>
+											<span><?php echo $product['color_name']; ?></span>
+										</div>
+										<div class="product-detail">
+											<i class="fas fa-ruler detail-icon"></i>
+											<span><?php echo $product['size_name']; ?></span>
 										</div>
 									</div>
+
+									<div class="product-price">Rs. <?php echo number_format($product['price'], 2); ?></div>
+
+									<?php
+									$stock_qty = $product['qty'];
+									if ($stock_qty > 10): ?>
+										<div class="product-stock in-stock">In Stock (<?php echo $stock_qty; ?> available)</div>
+									<?php elseif ($stock_qty > 0): ?>
+										<div class="product-stock low-stock">Low Stock (<?php echo $stock_qty; ?> left)</div>
+									<?php else: ?>
+										<div class="product-stock out-of-stock">Out of Stock</div>
+									<?php endif; ?>
+
+									<a href="singleProductView.php?s=<?php echo $product['stock_id']; ?>" class="product-action">
+										<i class="fas fa-eye"></i>
+										View Details
+									</a>
 								</div>
 							</div>
-					<?php 
-						endwhile;
-					else:
-					?>
-						<div class="col-12">
-							<div class="no-results">
-								<i class="fas fa-search"></i>
-								<h3>Start Exploring</h3>
-								<p>Use the search bar above to find your perfect fashion pieces, or browse our full collection.</p>
-								<button class="quick-action-btn" onclick="loadProduct(0)">
-									<i class="fas fa-eye"></i>
-									View All Products
-								</button>
-							</div>
+						<?php endwhile; ?>
+					</div>
+
+					<!-- Pagination -->
+					<?php if ($total_pages > 1): ?>
+						<div class="pagination-container">
+							<nav>
+								<ul class="pagination">
+									<!-- Previous Button -->
+									<?php if ($page > 1): ?>
+										<li class="page-item">
+											<a class="page-link" href="<?php echo buildPaginationUrl($page - 1, $search, $brand, $category, $color, $size, $min_price, $max_price, $sort); ?>">
+												<i class="fas fa-chevron-left"></i>
+											</a>
+										</li>
+									<?php else: ?>
+										<li class="page-item disabled">
+											<span class="page-link">
+												<i class="fas fa-chevron-left"></i>
+											</span>
+										</li>
+									<?php endif; ?>
+
+									<!-- Page Numbers -->
+									<?php
+									$start_page = max(1, $page - 2);
+									$end_page = min($total_pages, $page + 2);
+
+									for ($i = $start_page; $i <= $end_page; $i++): ?>
+										<li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
+											<a class="page-link" href="<?php echo buildPaginationUrl($i, $search, $brand, $category, $color, $size, $min_price, $max_price, $sort); ?>">
+												<?php echo $i; ?>
+											</a>
+										</li>
+									<?php endfor; ?>
+
+									<!-- Next Button -->
+									<?php if ($page < $total_pages): ?>
+										<li class="page-item">
+											<a class="page-link" href="<?php echo buildPaginationUrl($page + 1, $search, $brand, $category, $color, $size, $min_price, $max_price, $sort); ?>">
+												<i class="fas fa-chevron-right"></i>
+											</a>
+										</li>
+									<?php else: ?>
+										<li class="page-item disabled">
+											<span class="page-link">
+												<i class="fas fa-chevron-right"></i>
+											</span>
+										</li>
+									<?php endif; ?>
+								</ul>
+							</nav>
 						</div>
 					<?php endif; ?>
-				</div>
+
+				<?php else: ?>
+					<!-- No Results -->
+					<div class="no-results">
+						<i class="fas fa-search"></i>
+						<h3>No Products Found</h3>
+						<p>We couldn't find any products matching your search criteria. Try adjusting your filters or search terms.</p>
+						<button type="button" class="filter-btn btn-clear" onclick="clearFilters()">
+							<i class="fas fa-refresh"></i>
+							Clear All Filters
+						</button>
+					</div>
+				<?php endif; ?>
 
 			</div>
 		</div>
@@ -1127,10 +957,26 @@ if (isset($_SESSION["u"])) {
 		<!-- Include Footer -->
 		<?php include "homeFooter.php"; ?>
 
-		
+		<?php
+		// Helper function to build pagination URLs
+		function buildPaginationUrl($page_num, $search, $brand, $category, $color, $size, $min_price, $max_price, $sort)
+		{
+			$params = [];
+			if ($search) $params[] = "search=" . urlencode($search);
+			if ($brand) $params[] = "brand=" . urlencode($brand);
+			if ($category) $params[] = "category=" . urlencode($category);
+			if ($color) $params[] = "color=" . urlencode($color);
+			if ($size) $params[] = "size=" . urlencode($size);
+			if ($min_price) $params[] = "min_price=" . urlencode($min_price);
+			if ($max_price) $params[] = "max_price=" . urlencode($max_price);
+			if ($sort) $params[] = "sort=" . urlencode($sort);
+			$params[] = "page=" . $page_num;
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="script.js"></script>
+			return "?" . implode("&", $params);
+		}
+		?>
+
+		
 	</body>
 
 	</html>

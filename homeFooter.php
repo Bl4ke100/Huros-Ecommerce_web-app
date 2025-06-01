@@ -404,13 +404,13 @@
                                         <div class="contact-icon">
                                             <i class="fas fa-phone"></i>
                                         </div>
-                                        <div class="contact-text">+94 11 059 789 54</div>
+                                        <div class="contact-text">+94 71 256 584</div>
                                     </div>
                                     <div class="contact-item">
                                         <div class="contact-icon">
                                             <i class="fas fa-envelope"></i>
                                         </div>
-                                        <div class="contact-text">celestialsoff@gmail.com</div>
+                                        <div class="contact-text">contact@Horos.com</div>
                                     </div>
                                     <div class="contact-item">
                                         <div class="contact-icon">
@@ -491,10 +491,10 @@
                     <div class="copyright-section">
                         <div class="copyright-content">
                             <div class="copyright-logo">
-                                <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Celeste Logo">
+                                <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos Logo">
                             </div>
                             <div class="copyright-text">
-                                © 2024 Celeste.corp | All Rights Reserved
+                                © 2024 Horos.corp | All Rights Reserved
                             </div>
                         </div>
                     </div>

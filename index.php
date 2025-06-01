@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celeste | Premium Fashion</title>
+    <title>Horos | Premium Fashion</title>
     <link rel="stylesheet" href="new-home-styles.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -1032,7 +1032,7 @@
     <?php include "homeNav.php"; ?>
 
     <!-- Advanced Search Modal -->
-    <div class="search-modal d-none" id="filterId">
+    <div class="search-modal d-none" id="filterId" ">
         <div class="search-backdrop" onclick="viewFilter()"></div>
         <div class="search-container">
             <div class="search-header">
@@ -1140,7 +1140,7 @@
             </div>
         </div>
 
-        <div class="hero-content">
+        <div class="hero-content" style="padding: 100px;">
             <div class="hero-text">
                 <h1 class="hero-title">
                     <span class="title-line">Premium</span>
@@ -1265,7 +1265,7 @@
             <div class="testimonial-banner">
                 <div class="testimonial-content">
                     <div class="testimonial-quote">
-                        "Celeste has completely transformed my wardrobe. The quality and style
+                        "Horos has completely transformed my wardrobe. The quality and style
                         are unmatched, and every piece feels like a personal statement."
                     </div>
                     <div class="testimonial-author">

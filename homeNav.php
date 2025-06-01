@@ -673,8 +673,8 @@
             <!-- Left Side - Logo & Main Navigation -->
             <div class="nav-left">
                 <a href="index.php" class="brand-logo">
-                    <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Celeste" class="logo-icon">
-                    <span class="brand-text">Celeste</span>
+                    <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos" class="logo-icon">
+                    <span class="brand-text">Horos</span>
                 </a>
 
                 <div class="main-navigation">

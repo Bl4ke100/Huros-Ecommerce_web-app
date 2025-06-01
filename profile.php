@@ -18,7 +18,7 @@ if (isset($_SESSION["u"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="modern-profile.css">
         <link rel="stylesheet" href="bootstrap.css">
-        <title>Celeste | My Account</title>
+        <title>Horos | My Account</title>
         <link rel="shortcut icon" href="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
@@ -827,7 +827,7 @@ if (isset($_SESSION["u"])) {
             
                                     Order History
                                 </button>
-                                <button class="signOut-btn">
+                                <button class="signOut-btn" onclick="signOut();">
                                     
                                     Sign Out
                                 </button>
