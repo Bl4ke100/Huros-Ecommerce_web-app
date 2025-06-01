@@ -839,7 +839,7 @@ if (isset($_SESSION["a"])) {
                             </div>
                             <div class="product-stock">
                                 <div class="current-stock"><?php echo $currentQty; ?> units</div>
-                                <div class="current-price">$<?php echo number_format($currentPrice, 2); ?></div>
+                                <div class="current-price">Rs.<?php echo number_format($currentPrice, 2); ?></div>
                                 <div class="stock-status <?php echo $stockStatus; ?>">
                                     <i class="<?php echo $statusIcon; ?>"></i>
                                     <?php echo $statusText; ?>
@@ -890,7 +890,7 @@ if (isset($_SESSION["a"])) {
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Quantity</label>
+                        <label class="form-label">New Stock quantity</label>
                         <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" min="0">
                     </div>
 
@@ -1064,8 +1064,8 @@ if (isset($_SESSION["a"])) {
                     updateBtn.innerHTML = originalText;
                     
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Stock updated successfully!',
+                        title: 'Stock Updated Successfully!',
+                        text: 'The stock has been updated successfully.',
                         icon: 'success',
                         background: '#1a1a1a',
                         color: '#ffffff',

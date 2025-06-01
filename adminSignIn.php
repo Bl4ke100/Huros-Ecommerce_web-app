@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" type="image/x-icon">
-    <title>Celeste | Admin Signin</title>
+    <title>Horos | Admin Signin</title>
 
     <style>
         :root {
@@ -536,8 +536,8 @@
             <!-- Brand Header -->
             <div class="brand-header">
                 <a href="#" class="brand-logo">
-                    <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Celeste" class="logo-icon">
-                    <span class="brand-text">Celeste</span>
+                    <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos" class="logo-icon">
+                    <span class="brand-text">Horos</span>
                 </a>
                 <div class="brand-subtitle">Admin Portal</div>
             </div>
@@ -550,7 +550,7 @@
                     <div class="signin-form">
                         <div class="form-header">
                             <h2 class="form-title">Administrator Access</h2>
-                            <p class="form-subtitle">Secure sign-in to Celeste admin dashboard</p>
+                            <p class="form-subtitle">Secure sign-in to Horos admin dashboard</p>
                         </div>
 
                         <form>

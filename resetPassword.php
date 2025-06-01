@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celeste | Reset Password</title>
+    <title>Horos | Reset Password</title>
     <link rel="stylesheet" href="modern-auth.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="shortcut icon" href="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico">
@@ -880,11 +880,7 @@
     </style>
     <div class="container">
 
-        <!-- Navbar start -->
-        <?php
-        include "navbar.php";
-        ?>
-        <!-- Navbar End -->
+    
 
         <!-- Background Effects -->
         <div class="bg-effects">
@@ -1012,11 +1008,7 @@
         </div>
         <!-- Reset Password End -->
 
-        <!-- footer start -->
-        <?php
-        include "footer.php";
-        ?>
-        <!-- footer end -->
+       
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

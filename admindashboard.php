@@ -973,7 +973,7 @@
                                     <td>#<?php echo $order['order_id']; ?></td>
                                     <td><?php echo $order['customer_name']; ?></td>
                                     <td><?php echo date('Y-m-d', strtotime($order['order_date'])); ?></td>
-                                    <td>$<?php echo number_format($order['amount'], 2); ?></td>
+                                    <td>Rs.<?php echo number_format($order['amount'], 2); ?></td>
                                     <td><?php echo $order['item_count']; ?> item<?php echo $order['item_count'] != 1 ? 's' : ''; ?></td>
                                     <td><span class="status-badge completed">Completed</span></td>
                                 </tr>
@@ -1027,7 +1027,7 @@
                                     <td><?php echo $product['name']; ?></td>
                                     <td><?php echo $product['brand_name']; ?></td>
                                     <td><?php echo $product['cat_name']; ?></td>
-                                    <td>$<?php echo number_format($product['price'], 2); ?></td>
+                                    <td>Rs.<?php echo number_format($product['price'], 2); ?></td>
                                     <td><?php echo $product['qty']; ?></td>
                                     <td><span class="status-badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span></td>
                                 </tr>

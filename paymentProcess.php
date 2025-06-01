@@ -28,8 +28,8 @@ if (isset($_POST["cart"]) && $_POST["cart"] == "true") {
 }
 
 
-$merchantId = "1227055";
-$merchantSecret = "MTg1MTYyMjQ4NTM5ODk4OTM4ODEzOTYyMjI0MjAxMzUzNjQzMTg1NQ==";
+$merchantId = "1230668";
+$merchantSecret = "MTI2MDMyOTA1Mzg5MDUxMzc2MTI1MTA2NjIwMzQyMTMxMjg3NzQ3";
 $items = "";
 $netTotal = 0;
 $currency = "LKR";

@@ -11,7 +11,7 @@ if (isset($_SESSION["a"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celeste | User Management</title>
+    <title>Horos | User Management</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -821,19 +821,15 @@ if (isset($_SESSION["a"])) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        // Enhanced loaduser function to update stats
         const originalLoadUser = window.loaduser;
         window.loaduser = function() {
-            // Call original function
             if (typeof originalLoadUser === 'function') {
                 originalLoadUser();
             }
             
-            // Update stats after loading users
             setTimeout(updateUserStats, 500);
         };
 
-        // Update user statistics
         function updateUserStats() {
             const tableRows = document.querySelectorAll('#tb tr');
             let totalUsers = tableRows.length;
@@ -852,17 +848,14 @@ if (isset($_SESSION["a"])) {
                 }
             });
             
-            // Update stat cards
             document.getElementById('totalUsers').textContent = totalUsers;
             document.getElementById('activeUsers').textContent = activeUsers;
             document.getElementById('blockedUsers').textContent = blockedUsers;
             document.getElementById('newUsers').textContent = Math.floor(totalUsers * 0.2); // Simulate 20% new users
             
-            // Add action buttons to each row
             addActionButtons();
         }
 
-        // Add action buttons to table rows
         function addActionButtons() {
             const tableRows = document.querySelectorAll('#tb tr');
             
@@ -873,7 +866,6 @@ if (isset($_SESSION["a"])) {
                     const statusCell = cells[5];
                     const status = statusCell.textContent.trim();
                     
-                    // Update status display
                     const isActive = status === '1' || status.toLowerCase().includes('active');
                     statusCell.innerHTML = `
                         <span class="status-badge ${isActive ? 'active' : 'blocked'}">
@@ -882,7 +874,6 @@ if (isset($_SESSION["a"])) {
                         </span>
                     `;
                     
-                    // Add actions column if it doesn't exist
                     const actionsCell = document.createElement('td');
                     actionsCell.innerHTML = `
                         <div class="action-buttons">
@@ -899,60 +890,12 @@ if (isset($_SESSION["a"])) {
             });
         }
 
-        // Quick status change function
         function quickStatusChange(userId) {
             document.getElementById('uId').value = userId;
             updateUserStatus();
         }
 
-        // Delete user function
-        function deleteUser(userId) {
-            Swal.fire({
-                title: 'Delete User?',
-                text: `Are you sure you want to delete user ID: ${userId}? This action cannot be undone!`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#ef4444',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'Cancel',
-                background: '#1a1a1a',
-                color: '#ffffff'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Here you would call your delete function
-                    // For now, we'll simulate the deletion
-                    
-                    Swal.fire({
-                        title: 'Deleting...',
-                        text: 'Please wait while we delete the user.',
-                        background: '#1a1a1a',
-                        color: '#ffffff',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        showConfirmButton: false,
-                        willOpen: () => {
-                            Swal.showLoading();
-                        }
-                    });
-                    
-                    // Simulate deletion process
-                    setTimeout(() => {
-                        Swal.fire({
-                            title: 'Deleted!',
-                            text: 'User has been deleted successfully.',
-                            icon: 'success',
-                            background: '#1a1a1a',
-                            color: '#ffffff',
-                            confirmButtonColor: '#10b981'
-                        }).then(() => {
-                            // Reload the user list
-                            loaduser();
-                        });
-                    }, 2000);
-                }
-            });
-        }
+        
 
         // Enhanced updateUserStatus function
         const originalUpdateUserStatus = window.updateUserStatus;
@@ -971,11 +914,9 @@ if (isset($_SESSION["a"])) {
                 return;
             }
             
-            // Call original function if it exists
             if (typeof originalUpdateUserStatus === 'function') {
                 originalUpdateUserStatus();
             } else {
-                // Simulate status update
                 Swal.fire({
                     title: 'Updating Status...',
                     text: 'Please wait while we update the user status.',
@@ -1005,7 +946,6 @@ if (isset($_SESSION["a"])) {
             }
         };
 
-        // Search functionality
         document.getElementById('userSearch').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const tableRows = document.querySelectorAll('#tb tr');
@@ -1014,7 +954,6 @@ if (isset($_SESSION["a"])) {
                 const cells = row.querySelectorAll('td');
                 let rowText = '';
                 
-                // Combine text from first 5 columns (exclude status and actions)
                 for (let i = 0; i < Math.min(5, cells.length); i++) {
                     rowText += cells[i].textContent.toLowerCase() + ' ';
                 }
@@ -1026,17 +965,14 @@ if (isset($_SESSION["a"])) {
                 }
             });
             
-            // Update visible count
             const visibleRows = document.querySelectorAll('#tb tr:not([style*="display: none"])');
             document.getElementById('totalUsers').textContent = visibleRows.length;
         });
 
-        // Reload function
         function reload() {
             document.getElementById('msgDiv4').classList.add('d-none');
         }
 
-        // Page load animations
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.stat-card');
             cards.forEach((card, index) => {

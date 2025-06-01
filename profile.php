@@ -827,7 +827,7 @@ if (isset($_SESSION["u"])) {
             
                                     Order History
                                 </button>
-                                <button class="signOut-btn" onclick="signOut();">
+                                <button class="signOut-btn" onclick="signOut(); window.location.href='index.php';">
                                     
                                     Sign Out
                                 </button>

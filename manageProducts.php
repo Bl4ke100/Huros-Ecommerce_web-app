@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" type="image/x-icon">
-    <title>Horos | Manage Products</title>
+    <title>Horo | Manage Products</title>
 
     <style>
         :root {
@@ -131,13 +131,10 @@
         }
 
         @keyframes floatShapes {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px) rotate(0deg);
                 opacity: 0.3;
             }
-
             50% {
                 transform: translateY(-30px) rotate(180deg);
                 opacity: 0.6;
@@ -362,6 +359,10 @@
             align-items: center;
         }
 
+        .search-container {
+            position: relative;
+        }
+
         .search-input {
             padding: 0.75rem 1rem 0.75rem 3rem;
             background: rgba(255, 255, 255, 0.05);
@@ -370,7 +371,7 @@
             color: var(--pure-white);
             font-size: 0.95rem;
             width: 300px;
-            position: relative;
+            transition: var(--transition-normal);
         }
 
         .search-input::placeholder {
@@ -383,16 +384,36 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
-        .search-container {
-            position: relative;
-        }
-
         .search-icon {
             position: absolute;
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
             color: rgba(255, 255, 255, 0.5);
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .clear-search.show {
+            opacity: 1;
+        }
+
+        .clear-search:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--pure-white);
         }
 
         .filter-btn {
@@ -437,6 +458,19 @@
             font-size: 0.95rem;
         }
 
+        .search-results-info {
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            display: none;
+        }
+
+        .search-results-info.show {
+            display: block;
+        }
+
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -463,8 +497,16 @@
             font-weight: 500;
         }
 
+        .data-table tbody tr {
+            transition: var(--transition-normal);
+        }
+
         .data-table tbody tr:hover {
             background: rgba(255, 255, 255, 0.03);
+        }
+
+        .data-table tbody tr.hidden {
+            display: none;
         }
 
         /* Status Badges */
@@ -520,11 +562,7 @@
             color: var(--accent-blue);
         }
 
-        .action-btn.delete {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--accent-red);
-        }
-
+      
         .action-btn.view {
             background: rgba(139, 92, 246, 0.2);
             color: var(--accent-purple);
@@ -534,144 +572,32 @@
             transform: scale(1.1);
         }
 
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
-        }
-
-        .modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-backdrop {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal-container {
-            position: relative;
-            background: var(--primary-black);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius-xl);
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            z-index: 10000;
-            animation: slideInUp 0.4s ease;
-        }
-
-        .modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--pure-white);
-        }
-
-        .modal-close {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--pure-white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: var(--pure-white);
-            color: var(--primary-black);
-        }
-
-        .modal-content {
-            padding: 2rem;
-        }
-
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--border-radius-md);
-            color: var(--pure-white);
-            font-size: 0.95rem;
-            transition: var(--transition-normal);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--pure-white);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .form-control::placeholder {
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
             color: rgba(255, 255, 255, 0.5);
+            display: none;
         }
 
-        select.form-control {
-            cursor: pointer;
+        .no-results.show {
+            display: block;
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
+        .no-results i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.3);
         }
 
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+        .no-results h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .btn-cancel {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--pure-white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.15);
+        .no-results p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Animations */
@@ -680,22 +606,9 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
             }
         }
 
@@ -734,15 +647,6 @@
             .data-table td {
                 padding: 1rem;
                 font-size: 0.9rem;
-            }
-
-            .modal-container {
-                width: 95%;
-                margin: 1rem;
-            }
-
-            .modal-content {
-                padding: 1.5rem;
             }
         }
 
@@ -802,24 +706,6 @@
         ORDER BY p.id DESC
         LIMIT 15
     ");
-
-    // Brand statistics
-    $brandStatsQuery = Database::search("
-        SELECT b.brand_name, COUNT(p.id) as product_count
-        FROM brand b
-        LEFT JOIN product p ON b.brand_id = p.brand_brand_id
-        GROUP BY b.brand_id
-        ORDER BY product_count DESC
-    ");
-
-    // Category statistics
-    $categoryStatsQuery = Database::search("
-        SELECT c.cat_name, COUNT(p.id) as product_count
-        FROM category c
-        LEFT JOIN product p ON c.cat_id = p.category_cat_id
-        GROUP BY c.cat_id
-        ORDER BY product_count DESC
-    ");
     ?>
 
     <div class="page-container">
@@ -836,6 +722,10 @@
         <!-- Main Content -->
         <div class="main-content">
             <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Product Management</h1>
+                <p class="page-subtitle">Manage your product inventory, stock levels, and product information</p>
+            </div>
 
             <div class="action-buttons">
                 <button class="btn btn-primary" onclick="window.location.href='addProduct.php';">
@@ -978,6 +868,9 @@
                         <div class="search-container">
                             <input type="text" class="search-input" placeholder="Search products..." id="productSearch">
                             <i class="fas fa-search search-icon"></i>
+                            <button class="clear-search" id="clearSearch" title="Clear search">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                         <button class="filter-btn" title="Filter Products">
                             <i class="fas fa-filter"></i>
@@ -991,6 +884,10 @@
                         <p class="table-description">Complete overview of all products with stock status</p>
                     </div>
 
+                    <div class="search-results-info" id="searchResults">
+                        <span id="searchResultText"></span>
+                    </div>
+
                     <table class="data-table">
                         <thead>
                             <tr>
@@ -1002,7 +899,6 @@
                                 <th>Price</th>
                                 <th>Stock</th>
                                 <th>Status</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1019,175 +915,165 @@
                                     $statusText = 'Low Stock';
                                 }
                             ?>
-                                <tr>
-                                    <td><?php echo $product['name']; ?></td>
-                                    <td><?php echo $product['brand_name']; ?></td>
-                                    <td><?php echo $product['cat_name']; ?></td>
-                                    <td><?php echo $product['color_name']; ?></td>
-                                    <td><?php echo $product['size_name']; ?></td>
-                                    <td>Rs.<?php echo number_format($product['price'], 2); ?></td>
-                                    <td><?php echo $product['qty']; ?></td>
-                                    <td><span class="status-badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span></td>
-                                    <td>
-                                        <div class="action-buttons-table">
-                                            <button class="action-btn delete" title="Delete Product" onclick="deleteProduct(<?php echo $product['id']; ?>)">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
+                                <tr data-product-id="<?php echo $product['id']; ?>">
+                                    <td data-label="product"><?php echo htmlspecialchars($product['name']); ?></td>
+                                    <td data-label="brand"><?php echo htmlspecialchars($product['brand_name']); ?></td>
+                                    <td data-label="category"><?php echo htmlspecialchars($product['cat_name']); ?></td>
+                                    <td data-label="color"><?php echo htmlspecialchars($product['color_name']); ?></td>
+                                    <td data-label="size"><?php echo htmlspecialchars($product['size_name']); ?></td>
+                                    <td data-label="price">Rs.<?php echo number_format($product['price'], 2); ?></td>
+                                    <td data-label="stock"><?php echo $product['qty']; ?></td>
+                                    <td data-label="status"><span class="status-badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span></td>
+                                    
                                 </tr>
                             <?php
                             }
                             ?>
                         </tbody>
                     </table>
+
+                    <div class="no-results" id="noResults">
+                        <i class="fas fa-search"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your search terms or clear the search to see all products.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Add Product Modal -->
-    <div class="modal" id="addProductModal">
-        <div class="modal-backdrop" onclick="closeAddProductModal()"></div>
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3 class="modal-title">Add New Product</h3>
-                <button class="modal-close" onclick="closeAddProductModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-content">
-                <form id="addProductForm">
-                    <div class="form-group">
-                        <label class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-control" id="productDescription" placeholder="Enter product description" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Brand</label>
-                        <select class="form-control" id="productBrand" required>
-                            <option value="">Select Brand</option>
-                            <?php
-                            $brandsQuery = Database::search("SELECT * FROM `brand` ORDER BY `brand_name`");
-                            while ($brand = $brandsQuery->fetch_assoc()) {
-                                echo "<option value='{$brand['brand_id']}'>{$brand['brand_name']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <select class="form-control" id="productCategory" required>
-                            <option value="">Select Category</option>
-                            <?php
-                            $categoriesQuery = Database::search("SELECT * FROM `category` ORDER BY `cat_name`");
-                            while ($category = $categoriesQuery->fetch_assoc()) {
-                                echo "<option value='{$category['cat_id']}'>{$category['cat_name']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Color</label>
-                        <select class="form-control" id="productColor" required>
-                            <option value="">Select Color</option>
-                            <?php
-                            $colorsQuery = Database::search("SELECT * FROM `color` ORDER BY `color_name`");
-                            while ($color = $colorsQuery->fetch_assoc()) {
-                                echo "<option value='{$color['color_id']}'>{$color['color_name']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Size</label>
-                        <select class="form-control" id="productSize" required>
-                            <option value="">Select Size</option>
-                            <?php
-                            $sizesQuery = Database::search("SELECT * FROM `size` ORDER BY `size_name`");
-                            while ($size = $sizesQuery->fetch_assoc()) {
-                                echo "<option value='{$size['size_id']}'>{$size['size_name']}</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Price</label>
-                        <input type="number" class="form-control" id="productPrice" placeholder="0.00" step="0.01" min="0" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Initial Stock Quantity</label>
-                        <input type="number" class="form-control" id="productQty" placeholder="0" min="0" required>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-cancel" onclick="closeAddProductModal()">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Product</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
 
     <script>
-        // Modal Functions
-        function openAddProductModal() {
-            document.getElementById('addProductModal').classList.add('show');
+        // Enhanced Search Functionality
+        class ProductSearch {
+            constructor() {
+                this.searchInput = document.getElementById('productSearch');
+                this.clearBtn = document.getElementById('clearSearch');
+                this.tableRows = document.querySelectorAll('.data-table tbody tr');
+                this.searchResults = document.getElementById('searchResults');
+                this.searchResultText = document.getElementById('searchResultText');
+                this.noResults = document.getElementById('noResults');
+                
+                this.totalRows = this.tableRows.length;
+                this.visibleRows = this.totalRows;
+                
+                this.init();
+            }
+
+            init() {
+                // Search input event
+                this.searchInput.addEventListener('input', (e) => {
+                    this.performSearch(e.target.value);
+                    this.toggleClearButton(e.target.value);
+                });
+
+                // Clear search button
+                this.clearBtn.addEventListener('click', () => {
+                    this.clearSearch();
+                });
+
+                // Enter key search
+                this.searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        this.performSearch(e.target.value);
+                    }
+                });
+            }
+
+            performSearch(searchTerm) {
+                const term = searchTerm.toLowerCase().trim();
+                let visibleCount = 0;
+
+                this.tableRows.forEach(row => {
+                    if (!term) {
+                        // Show all rows if search is empty
+                        row.classList.remove('hidden');
+                        visibleCount++;
+                        return;
+                    }
+
+                    // Get all searchable text content
+                    const productName = row.querySelector('[data-label="product"]')?.textContent.toLowerCase() || '';
+                    const brandName = row.querySelector('[data-label="brand"]')?.textContent.toLowerCase() || '';
+                    const categoryName = row.querySelector('[data-label="category"]')?.textContent.toLowerCase() || '';
+                    const colorName = row.querySelector('[data-label="color"]')?.textContent.toLowerCase() || '';
+                    const sizeName = row.querySelector('[data-label="size"]')?.textContent.toLowerCase() || '';
+                    const statusText = row.querySelector('[data-label="status"]')?.textContent.toLowerCase() || '';
+                    const priceText = row.querySelector('[data-label="price"]')?.textContent.toLowerCase() || '';
+
+                    // Check if search term matches any field
+                    const isMatch = 
+                        productName.includes(term) ||
+                        brandName.includes(term) ||
+                        categoryName.includes(term) ||
+                        colorName.includes(term) ||
+                        sizeName.includes(term) ||
+                        statusText.includes(term) ||
+                        priceText.includes(term);
+
+                    if (isMatch) {
+                        row.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        row.classList.add('hidden');
+                    }
+                });
+
+                this.visibleRows = visibleCount;
+                this.updateSearchResults(term, visibleCount);
+            }
+
+            updateSearchResults(searchTerm, visibleCount) {
+                if (!searchTerm) {
+                    // Hide search results info when no search term
+                    this.searchResults.classList.remove('show');
+                    this.noResults.classList.remove('show');
+                    return;
+                }
+
+                if (visibleCount === 0) {
+                    // Show no results message
+                    this.searchResults.classList.remove('show');
+                    this.noResults.classList.add('show');
+                } else {
+                    // Show search results info
+                    this.noResults.classList.remove('show');
+                    this.searchResults.classList.add('show');
+                    
+                    const resultText = visibleCount === 1 
+                        ? `Found 1 product matching "${searchTerm}"`
+                        : `Found ${visibleCount} products matching "${searchTerm}"`;
+                    
+                    this.searchResultText.textContent = resultText;
+                }
+            }
+
+            toggleClearButton(searchTerm) {
+                if (searchTerm.length > 0) {
+                    this.clearBtn.classList.add('show');
+                } else {
+                    this.clearBtn.classList.remove('show');
+                }
+            }
+
+            clearSearch() {
+                this.searchInput.value = '';
+                this.searchInput.focus();
+                this.performSearch('');
+                this.toggleClearButton('');
+            }
         }
 
-        function closeAddProductModal() {
-            document.getElementById('addProductModal').classList.remove('show');
-            document.getElementById('addProductForm').reset();
-        }
-
-        function openAddBrandModal() {
-            document.getElementById('addBrandModal').classList.add('show');
-        }
-
-        function closeAddBrandModal() {
-            document.getElementById('addBrandModal').classList.remove('show');
-            document.getElementById('addBrandForm').reset();
-        }
+        // Initialize search when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.productSearch = new ProductSearch();
+        });
 
         // Product Actions
-        function viewProduct(productId) {
-            // Implement view product functionality
-            Swal.fire({
-                title: 'View Product',
-                text: `Viewing product ID: ${productId}`,
-                icon: 'info',
-                background: '#1a1a1a',
-                color: '#ffffff'
-            });
-        }
-
-        function editProduct(productId) {
-            // Implement edit product functionality
-            Swal.fire({
-                title: 'Edit Product',
-                text: `Editing product ID: ${productId}`,
-                icon: 'info',
-                background: '#1a1a1a',
-                color: '#ffffff'
-            });
-        }
-
         function deleteProduct(productId) {
             Swal.fire({
                 title: 'Delete Product?',
@@ -1201,7 +1087,6 @@
                 color: '#ffffff'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Implement delete functionality
                     Swal.fire({
                         title: 'Deleted!',
                         text: 'Product has been deleted.',
@@ -1213,84 +1098,19 @@
             });
         }
 
-        // Form Submissions
-        document.getElementById('addProductForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Collect form data
-            const formData = {
-                name: document.getElementById('productName').value,
-                description: document.getElementById('productDescription').value,
-                brand: document.getElementById('productBrand').value,
-                category: document.getElementById('productCategory').value,
-                color: document.getElementById('productColor').value,
-                size: document.getElementById('productSize').value,
-                price: document.getElementById('productPrice').value,
-                qty: document.getElementById('productQty').value
-            };
-
-            // Here you would send the data to your PHP backend
-            console.log('Adding product:', formData);
-
-            Swal.fire({
-                title: 'Success!',
-                text: 'Product added successfully!',
-                icon: 'success',
-                background: '#1a1a1a',
-                color: '#ffffff'
-            }).then(() => {
-                closeAddProductModal();
-                // Refresh the page or update the table
-                location.reload();
-            });
-        });
-
-        document.getElementById('addBrandForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const brandName = document.getElementById('brandName').value;
-
-            // Here you would send the data to your PHP backend
-            console.log('Adding brand:', brandName);
-
-            Swal.fire({
-                title: 'Success!',
-                text: 'Brand added successfully!',
-                icon: 'success',
-                background: '#1a1a1a',
-                color: '#ffffff'
-            }).then(() => {
-                closeAddBrandModal();
-                // Refresh the page or update the brand dropdown
-                location.reload();
-            });
-        });
-
-        // Search functionality
-        document.getElementById('productSearch').addEventListener('keyup', function() {
-            const searchTerm = this.value.toLowerCase();
-            const tableRows = document.querySelectorAll('.data-table tbody tr');
-
-            tableRows.forEach(row => {
-                const productName = row.cells[0].textContent.toLowerCase();
-                const brandName = row.cells[1].textContent.toLowerCase();
-                const categoryName = row.cells[2].textContent.toLowerCase();
-
-                if (productName.includes(searchTerm) ||
-                    brandName.includes(searchTerm) ||
-                    categoryName.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        // Close modals on Escape key
+        // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
+            // Ctrl+F or Cmd+F to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('productSearch').focus();
+            }
+            
+            // Escape to clear search
             if (e.key === 'Escape') {
-                closeAddProductModal();
-                closeAddBrandModal();
+                if (window.productSearch) {
+                    window.productSearch.clearSearch();
+                }
             }
         });
 
