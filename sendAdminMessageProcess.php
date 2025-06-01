@@ -29,7 +29,7 @@ if(empty($receiver)){
     echo "success1";
 }else{
     Database::iud("INSERT INTO `chat`(`content`,`date_time`,`status`,`from`,`to`) VALUES
-    ('".$msg_txt."','".$date."','0','".$sender."','vihanganethmini2005@gmail.com')");
+    ('".$msg_txt."','".$date."','0','".$sender."','janindumagamage100@gmail.com')");
 
 echo "success2";
 }

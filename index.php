@@ -1193,7 +1193,6 @@
 
             <div class="products-container">
                 <div class="products-grid" id="pid">
-                    <!-- Products loaded here via loadProduct(0) -->
                 </div>
             </div>
 

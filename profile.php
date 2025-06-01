@@ -322,6 +322,27 @@ if (isset($_SESSION["u"])) {
                 transform: translateY(-2px);
             }
 
+            .signOut-btn {
+                background:rgb(240, 72, 72);
+                color: white;
+                border: none;
+                padding: 0.875rem 1.5rem;
+                border-radius: var(--border-radius-md);
+                font-size: 0.9rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition-normal);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .signOut-btn:hover {
+                background: rgb(243, 27, 27);
+                transform: translateY(-2px);
+            }
+
             /* User Stats */
             .user-stats {
                 display: flex;
@@ -801,6 +822,14 @@ if (isset($_SESSION["u"])) {
                                         <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
                                     Upload
+                                </button>
+                                <button class="upload-btn" onclick="window.location.href='orderHistory.php';">
+            
+                                    Order History
+                                </button>
+                                <button class="signOut-btn">
+                                    
+                                    Sign Out
                                 </button>
                             </div>
                         </div>
