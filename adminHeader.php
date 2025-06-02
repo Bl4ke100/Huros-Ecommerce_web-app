@@ -331,7 +331,7 @@
             <!-- Left Side - Logo -->
             <div class="nav-left">
                 <a href="admindashboard.php" class="brand-logo">
-                    <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos" class="logo-icon">
+                    <img src="Resources/img/white.png" alt="Horos" class="logo-icon">
                     <span class="brand-text">Horos</span>
                     <span class="admin-badge">Admin</span>
                 </a>
