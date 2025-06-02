@@ -342,7 +342,7 @@ if ($num2 == 0) {
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $d["name"] ?></h5>
                     <p class="card-text"><?php echo $d["description"] ?></p>
-                    <p class="card-text">Rs. <?php echo number_format($d["price"], 2) ?></p>
+                    <p class="card-text" style="color: white;">Rs. <?php echo number_format($d["price"], 2) ?></p>
                     <div class="d-flex justify-content-center">
                         <a href="singleProductView.php?s=<?php echo $d["stock_id"] ?>">
                             <button class="btn btn-dark col-12 ms-2 text-white">

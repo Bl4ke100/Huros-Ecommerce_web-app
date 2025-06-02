@@ -490,12 +490,7 @@ if (isset($user)) {
         <div class="order-history-container">
             <div class="container-fluid mt-5">
 
-                <!-- Page Header -->
-                <div class="page-header">
-                    <h1 class="page-title">Order History</h1>
-                    <hr class="page-divider">
-                    <p class="page-subtitle">Track your purchases and order details</p>
-                </div>
+                
 
                 <div class="row">
                     <?php
@@ -583,11 +578,8 @@ if (isset($user)) {
                                     </div>
 
                                     <div class="order-total">
-                                        <span class="total-label">Net Total:</span>
-                                        <span class="total-amount">
-                                            <i class="fas fa-coins"></i>
-                                            Rs. <?php echo number_format($d["amount"], 2); ?>
-                                        </span>
+                                        <span class="total-label">Net Total: Rs. <?php echo number_format($d["amount"], 2); ?></span>
+                                        
                                     </div>
 
                                 </div>

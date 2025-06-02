@@ -22,7 +22,7 @@ if ($num > 0) {
         <link rel="stylesheet" href="bootstrap.css">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <title>Horo | Invoice</title>
+        <title>Horos | Invoice</title>
         
         <style>
             * {
@@ -52,7 +52,7 @@ if ($num > 0) {
 
             body {
                 font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-                background: var(--gray-50);
+                background: var(--gray-800);
                 color: var(--primary);
                 line-height: 1.6;
                 font-weight: 400;
@@ -400,8 +400,8 @@ if ($num > 0) {
                     
                     <div class="company-info">
                         <div class="company-logo">
-                            <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horo Logo">
-                            <h4 class="company-name">Horo</h4>
+                            <img src="Resources/img/3249825_health_treatment_illustration_hair_beauty_icon.ico" alt="Horos Logo">
+                            <h4 class="company-name">Horos</h4>
                         </div>
                         <h1 class="invoice-title">INVOICE</h1>
                         <div class="company-address">

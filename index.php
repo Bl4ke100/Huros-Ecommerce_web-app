@@ -159,6 +159,340 @@
             margin-bottom: 2rem;
         }
 
+
+
+
+        .bestsellers-section {
+            background: var(--secondary-black);
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header.centered {
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-black);
+            color: var(--pure-white);
+            border: 2px solid var(--pure-white);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-badge.accent {
+            background: var(--primary-black);
+            color: var(--pure-white);
+            border: 2px solid var(--pure-white);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--pure-white);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Testimonial Carousel */
+        .testimonial-carousel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-xl);
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+
+        .testimonial-carousel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+
+        .testimonial-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--pure-white);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            position: relative;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            font-family: serif;
+        }
+
+        .testimonial-quote::before {
+            top: -1rem;
+            left: -2rem;
+        }
+
+        .testimonial-quote::after {
+            bottom: -2rem;
+            right: -2rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--pure-white);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--pure-white);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-title {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .author-location {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.1rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .testimonial-product {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--pure-white);
+            color: var(--pure-white);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .carousel-dot.active {
+            background: var(--pure-white);
+            border-color: var(--pure-white);
+        }
+
+        .carousel-dot:hover {
+            border-color: var(--pure-white);
+            transform: scale(1.2);
+        }
+
+        /* Auto-play indicator */
+        .carousel-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--pure-white);
+            transition: width 0.1s linear;
+            border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonial-carousel {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-quote {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .testimonial-quote::before,
+            .testimonial-quote::after {
+                font-size: 2rem;
+            }
+
+            .testimonial-quote::before {
+                top: -0.5rem;
+                left: -1rem;
+            }
+
+            .testimonial-quote::after {
+                bottom: -1.5rem;
+                right: -1rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .author-info {
+                text-align: center;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-slide {
+                padding: 1.5rem 1rem;
+            }
+
+            .testimonial-quote {
+                font-size: 1rem;
+            }
+
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         .filter-group label {
             display: block;
             font-weight: 600;
@@ -1071,104 +1405,7 @@
     <!-- Navigation -->
     <?php include "homeNav.php"; ?>
 
-    <!-- Advanced Search Modal -->
-    <div class="search-modal d-none" id="filterId" ">
-        <div class=" search-backdrop" onclick="viewFilter()"></div>
-    <div class="search-container">
-        <div class="search-header">
-            <h3>Find Your Perfect Style</h3>
-            <button class="search-close" onclick="viewFilter()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
 
-        <div class="search-content">
-            <div class="search-filters">
-                <div class="filter-group">
-                    <label>Color</label>
-                    <select id="color" class="filter-select">
-                        <option value="0">Any Color</option>
-                        <?php
-                        $rs1 = Database::search("SELECT * FROM `color`");
-                        $num1 = $rs1->num_rows;
-                        for ($i = 0; $i < $num1; $i++) {
-                            $d1 = $rs1->fetch_assoc();
-                        ?>
-                            <option value="<?php echo $d1["color_id"] ?>">
-                                <?php echo $d1["color_name"] ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Category</label>
-                    <select id="cat" class="filter-select">
-                        <option value="0">All Categories</option>
-                        <?php
-                        $rs2 = Database::search("SELECT * FROM `category`");
-                        $num2 = $rs2->num_rows;
-                        for ($i = 0; $i < $num2; $i++) {
-                            $d2 = $rs2->fetch_assoc();
-                        ?>
-                            <option value="<?php echo $d2["cat_id"] ?>">
-                                <?php echo $d2["cat_name"] ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Brand</label>
-                    <select id="brand" class="filter-select">
-                        <option value="0">All Brands</option>
-                        <?php
-                        $rs3 = Database::search("SELECT * FROM `brand`");
-                        $num3 = $rs3->num_rows;
-                        for ($i = 0; $i < $num3; $i++) {
-                            $d3 = $rs3->fetch_assoc();
-                        ?>
-                            <option value="<?php echo $d3["brand_id"] ?>">
-                                <?php echo $d3["brand_name"] ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Size</label>
-                    <select id="size" class="filter-select">
-                        <option value="0">All Sizes</option>
-                        <?php
-                        $rs4 = Database::search("SELECT * FROM `size`");
-                        $num4 = $rs4->num_rows;
-                        for ($i = 0; $i < $num4; $i++) {
-                            $d4 = $rs4->fetch_assoc();
-                        ?>
-                            <option value="<?php echo $d4["size_id"] ?>">
-                                <?php echo $d4["size_name"] ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Price Range</label>
-                    <div class="price-inputs">
-                        <input type="text" id="min" placeholder="Min" class="price-input">
-                        <span class="price-separator">-</span>
-                        <input type="text" id="max" placeholder="Max" class="price-input">
-                    </div>
-                </div>
-            </div>
-
-            <button class="search-btn" onclick="advSearchProduct(0);">
-                <i class="fas fa-search"></i>
-                Search Products
-            </button>
-        </div>
-    </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1183,23 +1420,18 @@
         <div class="hero-content" style="padding: 100px;">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="title-line">Premium</span>
-                    <span class="title-line">Fashion</span>
-                    <span class="title-accent">Redefined</span>
+                    <span class="title-line">WHERE STYLE</span>
+                    <span class="title-accent">MEETS LEGACY</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Discover exclusive collections that blend contemporary style with timeless elegance.
-                    Every piece tells a story of craftsmanship and innovation.
+                    Explore exclusive collections that merge contemporary design with timeless craftsmanship. Each watch is a statement of precision, elegance, and innovation.
                 </p>
                 <div class="hero-actions">
                     <button class="btn-primary hero-btn" onclick="document.querySelector('.featured-section').scrollIntoView({behavior: 'smooth'})">
                         Explore Collection
                         <i class="fas fa-arrow-right"></i>
                     </button>
-                    <button class="btn-secondary hero-btn" onclick="viewFilter()">
-                        Advanced Search
-                        <i class="fas fa-search"></i>
-                    </button>
+
                 </div>
             </div>
 
@@ -1227,7 +1459,7 @@
                 <div class="section-badge">Featured</div>
                 <h2 class="section-title">Curated Collections</h2>
                 <p class="section-subtitle">
-                    Handpicked items that represent the pinnacle of fashion and quality
+                    Exceptional timepieces, thoughtfully selected to reflect the highest standards of design, quality, and craftsmanship.
                 </p>
             </div>
 
@@ -1237,7 +1469,7 @@
             </div>
 
             <div class="section-footer">
-                <button class="view-all-btn">
+                <button class="view-all-btn" onclick="location.href='shop.php'">
                     View All Products
                     <i class="fas fa-arrow-right"></i>
                 </button>
@@ -1286,14 +1518,15 @@
         </div>
     </section>
 
-    <!-- Best Sellers Section -->
+
+
     <section class="bestsellers-section">
         <div class="container">
             <div class="section-header centered">
                 <div class="section-badge accent">Best Sellers</div>
                 <h2 class="section-title">Customer Favorites</h2>
                 <p class="section-subtitle">
-                    The most loved pieces by our community of fashion enthusiasts
+                    The most loved timepieces by our community of watch enthusiasts
                 </p>
             </div>
 
@@ -1301,29 +1534,161 @@
                 <!-- Best sellers loaded here -->
             </div>
 
-            <div class="testimonial-banner">
-                <div class="testimonial-content">
-                    <div class="testimonial-quote">
-                        "Horos has completely transformed my wardrobe. The quality and style
-                        are unmatched, and every piece feels like a personal statement."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Sarah Johnson</div>
-                            <div class="author-title">Fashion Blogger</div>
+            <div class="testimonial-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-quote">
+                                I've been wearing my Horo Classic for over a year now, and it still looks brand new. The craftsmanship is exceptional, and I get compliments everywhere I go. Best investment I've made!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Marcus Chen</div>
+                                    <div class="author-title">Business Executive</div>
+                                    <div class="author-location">Singapore</div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-product">Horo Classic Steel</div>
                         </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote">
+                                The attention to detail on my Horo Sport is incredible. From the perfectly weighted feel to the smooth second hand movement, everything screams quality. Worth every penny!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Sarah Johnson</div>
+                                    <div class="author-title">Fitness Trainer</div>
+                                    <div class="author-location">New York, USA</div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-product">Horo Sport Titanium</div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote">
+                                I was looking for a watch that could transition from boardroom to weekend, and my Horo Elegance does exactly that. The design is timeless and sophisticated.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">James Rodriguez</div>
+                                    <div class="author-title">Architect</div>
+                                    <div class="author-location">Barcelona, Spain</div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-product">Horo Elegance Gold</div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote">
+                                The precision and reliability of my Horo Professional is outstanding. As a pilot, I need a watch I can trust completely, and this delivers every single time.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Captain Emily Watson</div>
+                                    <div class="author-title">Commercial Pilot</div>
+                                    <div class="author-location">London, UK</div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-product">Horo Professional GMT</div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-quote">
+                                My Horo Vintage has become a conversation starter. The retro design mixed with modern reliability is perfect. I've already recommended it to three friends!
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">Alex Thompson</div>
+                                    <div class="author-title">Creative Director</div>
+                                    <div class="author-location">Melbourne, Australia</div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-product">Horo Vintage Bronze</div>
                         </div>
                     </div>
                 </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-dots" id="carouselDots">
+                        <button class="carousel-dot active" data-slide="0"></button>
+                        <button class="carousel-dot" data-slide="1"></button>
+                        <button class="carousel-dot" data-slide="2"></button>
+                        <button class="carousel-dot" data-slide="3"></button>
+                        <button class="carousel-dot" data-slide="4"></button>
+                    </div>
+
+                    <button class="carousel-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-progress" id="progressBar"></div>
             </div>
         </div>
     </section>
+
+
+
 
     <!-- Categories Showcase -->
     <section class="categories-section">
@@ -1346,7 +1711,7 @@
                 </div>
 
                 <div class="category-card">
-                    <div class="category-image2" >
+                    <div class="category-image2">
                         <div class="category-overlay"></div>
                         <div class="category-content">
                             <h3 class="category-title">Pilot</h3>
@@ -1393,35 +1758,46 @@
     </section>
 
     <!-- Trending Section -->
-    <section class="trending-section">
-        <div class="container">
-            <div class="trending-header">
-                <div class="trending-info">
-                    <div class="section-badge trending">Trending Now</div>
-                    <h2 class="section-title">What's Hot</h2>
-                    <p class="section-text">
-                        Stay in the loop with the latest trends and must-have pieces that are
-                        taking the fashion world by storm.
-                    </p>
-                </div>
-
-                <div class="trending-controls">
-                    <button class="trend-nav prev" id="trendPrev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="trend-nav next" id="trendNext">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="trending-slider">
-                <div class="trending-track" id="trendingProducts">
-                    <!-- Trending products loaded here -->
-                </div>
+<section class="trending-section">
+    <div class="container">
+        <div class="trending-header">
+            <div class="trending-info">
+                <div class="section-badge trending">Trending Now</div>
+                <h2 class="section-title">What's Hot</h2>
+                <p class="section-text">
+                    Keep up with the latest arrivals and essential timepieces defining modern style and innovation.
+                </p>
             </div>
         </div>
-    </section>
+
+
+        <!-- Image Banner -->
+        <div style="
+            width: 100%;
+            height: 700px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+        " onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+            <img src="resource/Grey Silver Modern Minimalist Luxury Watch Facebook Ad.png" 
+                 alt="Luxury Watch Advertisement" 
+                 style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: all 0.3s ease;
+                 " 
+                 onmouseover="this.style.transform='scale(1.02)'" 
+                 onmouseout="this.style.transform='scale(1)'">
+        </div>
+    </div>
+</section>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
@@ -1468,7 +1844,6 @@
     <!-- Footer -->
     <?php include "homeFooter.php"; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="new-home-scripts.js"></script>
     <script src="script.js"></script>
     <script src="bootstrap.bundle.min.js"></script>

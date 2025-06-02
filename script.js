@@ -644,7 +644,13 @@ function updateData() {
             var response = request.responseText;
             // alert(response);
 
-            Swal.fire(response);
+            Swal.fire({
+                title: "Success",
+                text: response,
+                icon: "success",
+                background: '#1a1a1a',
+                color: '#ffffff'
+            });
         }
     }
     request.open("POST", "updateDataProcess.php", true);
@@ -666,7 +672,9 @@ function signOut() {
             Swal.fire({
                 title: "Successfully Signed out",
                 text: response,
-                icon: "success"
+                icon: "success",
+                background: '#1a1a1a',
+                color: '#ffffff'
             });
 
             qty.value = "";
@@ -694,7 +702,9 @@ function adminSignOut() {
             Swal.fire({
                 title: "Successfully Signed out",
                 text: response,
-                icon: "success"
+                icon: "success",
+                background: '#1a1a1a',
+                color: '#ffffff'
             });
 
             // reload();
@@ -734,9 +744,10 @@ function addtoCart(x) {
                 // alert(response);
 
                 Swal.fire({
-                    title: "Good choice!",
                     text: response,
-                    icon: "success"
+                    icon: "success",
+                    background: '#1a1a1a',
+                    color: '#ffffff'
                 });
 
                 qty.value = "";
@@ -1100,3 +1111,142 @@ function loadChart() {
     request.open("POST", "loadChartProcess.php", true);
     request.send();
 }
+
+
+        class TestimonialCarousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.testimonial-slide');
+                this.totalSlides = this.slides.length;
+                this.track = document.getElementById('carouselTrack');
+                this.dots = document.querySelectorAll('.carousel-dot');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.progressBar = document.getElementById('progressBar');
+                
+                this.autoPlayInterval = null;
+                this.autoPlayDuration = 6000; // 6 seconds
+                this.progressInterval = null;
+                
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.startAutoPlay();
+                this.updateSlide();
+            }
+
+            setupEventListeners() {
+                // Previous/Next buttons
+                this.prevBtn.addEventListener('click', () => {
+                    this.stopAutoPlay();
+                    this.prevSlide();
+                    this.startAutoPlay();
+                });
+
+                this.nextBtn.addEventListener('click', () => {
+                    this.stopAutoPlay();
+                    this.nextSlide();
+                    this.startAutoPlay();
+                });
+
+                // Dot navigation
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.stopAutoPlay();
+                        this.goToSlide(index);
+                        this.startAutoPlay();
+                    });
+                });
+
+                // Pause on hover
+                const carousel = document.querySelector('.testimonial-carousel');
+                carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+                carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.stopAutoPlay();
+                        this.prevSlide();
+                        this.startAutoPlay();
+                    } else if (e.key === 'ArrowRight') {
+                        this.stopAutoPlay();
+                        this.nextSlide();
+                        this.startAutoPlay();
+                    }
+                });
+            }
+
+            updateSlide() {
+                // Update slide visibility
+                this.slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === this.currentSlide);
+                });
+
+                // Update track position
+                this.track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+
+                // Update dots
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+
+                // Update buttons
+                this.prevBtn.disabled = this.currentSlide === 0;
+                this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlide();
+            }
+
+            prevSlide() {
+                this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+                this.updateSlide();
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlide();
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay(); // Clear any existing interval
+                
+                let progress = 0;
+                this.progressBar.style.width = '0%';
+                
+                this.progressInterval = setInterval(() => {
+                    progress += 100;
+                    this.progressBar.style.width = `${(progress / this.autoPlayDuration) * 100}%`;
+                }, 100);
+
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                    this.resetProgress();
+                }, this.autoPlayDuration);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                    this.progressInterval = null;
+                }
+            }
+
+            resetProgress() {
+                this.progressBar.style.width = '0%';
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialCarousel();
+        });
