@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celeste | Signin</title>
+    <title>Horos | Signin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modern-auth.css">
     <link rel="stylesheet" href="bootstrap.css">
@@ -469,15 +469,10 @@
                 <div class="auth-visual">
                     <div class="visual-content">
                         <div class="brand-icon">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                                <line x1="9" y1="9" x2="9.01" y2="9" />
-                                <line x1="15" y1="9" x2="15.01" y2="9" />
-                            </svg>
+                            <img src="Resources/img/black.ico" alt="">
                         </div>
                         <h3>Welcome Back</h3>
-                        <p>Sign in to continue your journey with Celeste</p>
+                        <p>Sign in to continue your journey with Horos</p>
                     </div>
                 </div>
 
@@ -528,7 +523,7 @@
                         <a href="forgotPassword.php" class="btn-secondary">Forgot Password?</a>
 
                         <button type="button" class="btn-outline" onclick="changeView();">
-                            New to Celeste? Sign Up
+                            New to Horos? Sign Up
                         </button>
                     </form>
                 </div>
@@ -549,7 +544,7 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
-                        <h3>Join Celeste</h3>
+                        <h3>Join Horos</h3>
                         <p>Create your account and start your beauty journey</p>
                     </div>
                 </div>
