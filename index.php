@@ -1801,7 +1801,7 @@
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-card">
-                
+                <div class="newsletter-content">
                     <div class="newsletter-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -1834,7 +1834,7 @@
                             <span>Style Tips</span>
                         </div>
                     </div>
-                
+                </div>
             </div>
         </div>
     </section>
