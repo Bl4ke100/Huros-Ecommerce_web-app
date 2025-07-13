@@ -1027,7 +1027,7 @@
         }
 
         .category-image {
-            background-image: url('resource/audemars-piguet-royal-oak-offsho.png');
+            background-image: url('Resources/homepageImg/audemars-piguet-royal-oak-offsho.png');
             width: 100%;
             height: 100%;
             position: relative;
@@ -1037,7 +1037,7 @@
         }
 
         .category-image5 {
-            background-image: url('resource/carred1-scaled-e1659541845383.png');
+            background-image: url('Resources/homepageImg/carred1-scaled-e1659541845383.png');
             width: 100%;
             height: 100%;
             position: relative;
@@ -1047,7 +1047,7 @@
         }
 
         .category-image2 {
-            background-image: url('resource/IW344001_cover.png');
+            background-image: url('Resources/homepageImg/IW344001_cover.png');
             width: 100%;
             height: 100%;
             position: relative;
@@ -1057,7 +1057,7 @@
         }
 
         .category-image3 {
-            background-image: url('resource/watch-club-rolex-gmt-master-gold-and-steel-box-and-warranty-card-ref-116713ln-year-2015-13305-1.png');
+            background-image: url('Resources/homepageImg/watch-club-rolex-gmt-master-gold-and-steel-box-and-warranty-card-ref-116713ln-year-2015-13305-1.png');
             width: 100%;
             height: 100%;
             position: relative;
@@ -1067,7 +1067,7 @@
         }
 
         .category-image4 {
-            background-image: url('resource/OS-WC-Patek-Philippe-5811-52.jpg');
+            background-image: url('Resources/homepageImg/OS-WC-Patek-Philippe-5811-52.jpg');
             width: 100%;
             height: 100%;
             position: relative;
@@ -1530,9 +1530,7 @@
                 </p>
             </div>
 
-            <div class="bestsellers-grid" id="bestSellers">
-                <!-- Best sellers loaded here -->
-            </div>
+            
 
             <div class="testimonial-carousel">
                 <div class="carousel-container">
@@ -1682,7 +1680,7 @@
                     </button>
                 </div>
 
-                <div class="carousel-progress" id="progressBar"></div>
+                
             </div>
         </div>
     </section>
@@ -1803,7 +1801,7 @@
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-card">
-                <div class="newsletter-content">
+                
                     <div class="newsletter-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -1836,7 +1834,7 @@
                             <span>Style Tips</span>
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
     </section>

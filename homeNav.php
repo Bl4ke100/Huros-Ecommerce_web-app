@@ -695,9 +695,7 @@
                         <button class="search-btn" type="button">
                         </button>
                     </div>
-                    <button class="filter-btn" type="button" onclick="viewFilter();" title="Advanced Filters">
-                        <i class="fas fa-sliders-h"></i>
-                    </button>
+                    
                 </div>
 
                 <!-- User Actions -->
