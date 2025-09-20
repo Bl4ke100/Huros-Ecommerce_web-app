@@ -16,10 +16,8 @@ if ($num > 0) {
 
 ?>
 
-    <!-- Modern Cart Grid Layout -->
     <div class="cart-grid-container">
         <style>
-            /* Cart Grid Layout */
             .cart-grid-container {
                 display: grid;
                 grid-template-columns: 1fr 400px;
@@ -28,16 +26,12 @@ if ($num > 0) {
                 width: 100%;
             }
 
-            /* modern-cart-items.css - Add this to your modern-cart.css file */
-
-            /* Modern Cart Items Container */
             .modern-cart-items {
                 display: flex;
                 flex-direction: column;
                 gap: 2rem;
             }
 
-            /* Individual Cart Item Card */
             .cart-item-card {
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -72,7 +66,6 @@ if ($num > 0) {
                 left: 100%;
             }
 
-            /* Item Main Content */
             .item-main-content {
                 display: grid;
                 grid-template-columns: 150px 1fr auto;
@@ -80,7 +73,6 @@ if ($num > 0) {
                 align-items: start;
             }
 
-            /* Product Image */
             .item-image-container {
                 position: relative;
             }
@@ -143,7 +135,6 @@ if ($num > 0) {
                 background: var(--gray-100);
             }
 
-            /* Product Details */
             .item-details {
                 flex: 1;
                 display: flex;
@@ -236,7 +227,6 @@ if ($num > 0) {
                 font-weight: 700;
             }
 
-            /* Quantity Section */
             .quantity-section {
                 display: flex;
                 align-items: center;
@@ -293,7 +283,6 @@ if ($num > 0) {
                 outline: none;
             }
 
-            /* Item Total Section */
             .item-total-section {
                 display: flex;
                 flex-direction: column;
@@ -345,7 +334,6 @@ if ($num > 0) {
                 border-color: rgba(255, 107, 107, 0.4);
             }
 
-            /* Item Footer */
             .item-footer {
                 margin-top: 1.5rem;
                 padding-top: 1rem;
@@ -377,7 +365,6 @@ if ($num > 0) {
                 color: rgba(255, 255, 255, 0.7);
             }
 
-            /* Enhanced Cart Summary */
             .cart-summary-enhanced {
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -421,7 +408,6 @@ if ($num > 0) {
                 padding: 1.5rem;
             }
 
-            /* Order Breakdown */
             .order-breakdown {
                 margin-bottom: 1.5rem;
             }
@@ -508,7 +494,6 @@ if ($num > 0) {
                 text-align: center;
             }
 
-            /* Enhanced Checkout Section */
             .checkout-section-enhanced {
                 margin-bottom: 1.5rem;
             }
@@ -569,7 +554,6 @@ if ($num > 0) {
                 animation: spin 1s linear infinite;
             }
 
-            /* Payment Security */
             .payment-security {
                 display: flex;
                 justify-content: space-between;
@@ -591,7 +575,6 @@ if ($num > 0) {
                 font-size: 1rem;
             }
 
-            /* Additional Services */
             .additional-services {
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 padding-top: 1rem;
@@ -629,7 +612,6 @@ if ($num > 0) {
                 font-size: 0.7rem;
             }
 
-            /* Responsive Design */
             @media (max-width: 1200px) {
                 .cart-grid-container {
                     grid-template-columns: 1fr 350px;
@@ -715,7 +697,6 @@ if ($num > 0) {
             }
         </style>
 
-        <!-- Left Column: Cart Items -->
         <div class="modern-cart-items">
             <?php
 
@@ -726,10 +707,8 @@ if ($num > 0) {
 
             ?>
 
-                <!-- Individual Cart Item -->
                 <div class="cart-item-card" data-cart-id="<?php echo $d['cart_id']; ?>">
                     <div class="item-main-content">
-                        <!-- Product Image -->
                         <div class="item-image-container">
                             <div class="item-image-wrapper">
                                 <img src="<?php echo $d["path"]; ?>" alt="<?php echo $d["name"]; ?>" class="item-image">
@@ -741,7 +720,6 @@ if ($num > 0) {
                             </div>
                         </div>
 
-                        <!-- Product Details -->
                         <div class="item-details">
                             <div class="item-header">
                                 <h4 class="item-name"><?php echo $d["name"]; ?></h4>
@@ -765,7 +743,6 @@ if ($num > 0) {
                                 </div>
                             </div>
 
-                            <!-- Quantity Controls -->
                             <div class="quantity-section">
                                 <div class="quantity-label">Qty:</div>
                                 <div class="quantity-controls">
@@ -804,7 +781,6 @@ if ($num > 0) {
             ?>
         </div>
 
-        <!-- Right Column: Cart Summary -->
         <div class="cart-summary-enhanced">
             <div class="summary-header-enhanced">
                 <h3 class="summary-title-enhanced">
@@ -817,7 +793,6 @@ if ($num > 0) {
             </div>
 
             <div class="summary-content-enhanced">
-                <!-- Order Breakdown -->
                 <div class="order-breakdown">
                     <div class="breakdown-row">
                         <span class="breakdown-label">
@@ -848,7 +823,6 @@ if ($num > 0) {
 
 
 
-                <!-- Checkout Button -->
                 <div class="checkout-section-enhanced">
                     <button class="checkout-btn-enhanced" onclick="checkOut();">
                         <div class="btn-content">
@@ -867,7 +841,6 @@ if ($num > 0) {
 <?php
 } else {
 ?>
-    <!-- Enhanced Empty Cart -->
     <div class="empty-cart-enhanced">
         <style>
             .empty-cart-enhanced {
@@ -1045,7 +1018,6 @@ if ($num > 0) {
         <div class="empty-cart-animation">
             <div class="cart-icon-large">
                 <i class="fas fa-shopping-cart"></i>
-                <div class="cart-pulse"></div>
             </div>
         </div>
 
@@ -1055,29 +1027,7 @@ if ($num > 0) {
                 Looks like you haven't added any items to your cart yet.
                 Start shopping to fill it up with amazing products!
             </p>
-
-            <div class="empty-cart-actions">
-                <a href="index.php" class="continue-shopping-enhanced">
-                    <i class="fas fa-arrow-left"></i>
-                    <span>Continue Shopping</span>
-                </a>
-
-                <button class="view-wishlist-btn" onclick="window.location.href='wishlist.php'">
-                    <i class="fas fa-heart"></i>
-                    <span>View Wishlist</span>
-                </button>
-            </div>
-
-            <!-- Suggestions -->
-            <div class="shopping-suggestions">
-                <h4>Popular Categories</h4>
-                <div class="suggestion-tags">
-                    <a href="#" class="suggestion-tag">Streetwear</a>
-                    <a href="#" class="suggestion-tag">Formal</a>
-                    <a href="#" class="suggestion-tag">Casual</a>
-                    <a href="#" class="suggestion-tag">Accessories</a>
-                </div>
-            </div>
+           
         </div>
     </div>
 
